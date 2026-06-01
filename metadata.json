@@ -1,0 +1,6 @@
+{
+  "name": "Site Sicurezza Engenharia",
+  "description": "Landing Page Premium para Empresa de Engenharia de Segurança do Trabalho com formulário AJAX e design moderno.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
