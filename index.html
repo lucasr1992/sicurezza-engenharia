@@ -33,7 +33,7 @@
             },
             colors: {
               primary: '#1f3927', // Verde Escuro Institucional
-              secondary: '#808080', // Cinza Texto
+              secondary: '#a3a3a3', // Cinza Texto (mais fraco e moderno)
               bgLight: '#FAFAFA', // Fundo Gelo
             },
             animation: {
@@ -59,6 +59,33 @@
     <style>
       html { scroll-behavior: smooth; }
       body { font-family: 'Poppins', sans-serif; }
+      
+      /* Navigation hover illumination effect */
+      .nav-menu-btn {
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+      }
+      .nav-menu-btn::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #1f3927;
+        transform-origin: bottom right;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-menu-btn:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .nav-menu-btn:hover {
+        color: #1f3927 !important;
+        text-shadow: 0 0 12px rgba(31, 57, 39, 0.4), 0 0 24px rgba(31, 57, 39, 0.2);
+        scale: 1.03;
+      }
       
       /* SPA Utility Classes */
       .view-section { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
@@ -98,9 +125,9 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <button onclick="navigateTo('home')" class="text-secondary hover:text-primary font-medium transition-colors cursor-pointer text-base">Início</button>
-                <button onclick="navigateTo('about')" class="text-secondary hover:text-primary font-medium transition-colors cursor-pointer text-base">Sobre Nós</button>
-                <button onclick="navigateTo('news')" class="text-secondary hover:text-primary font-medium transition-colors cursor-pointer text-base">Segurança em Pauta</button>
+                <button onclick="navigateTo('home')" class="nav-menu-btn text-gray-700 font-semibold cursor-pointer text-base">Início</button>
+                <button onclick="navigateTo('about')" class="nav-menu-btn text-gray-700 font-semibold cursor-pointer text-base">Sobre Nós</button>
+                <button onclick="navigateTo('news')" class="nav-menu-btn text-gray-700 font-semibold cursor-pointer text-base">Segurança em Pauta</button>
                 <button onclick="navigateTo('contact')" class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:brightness-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer text-base">
                     Contato
                 </button>
@@ -114,9 +141,9 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-6 flex flex-col items-center gap-4 animate-fade-in border-t border-gray-100">
-            <button onclick="navigateTo('home')" class="text-secondary text-lg font-medium cursor-pointer w-full py-2 hover:bg-gray-50">Início</button>
-            <button onclick="navigateTo('about')" class="text-secondary text-lg font-medium cursor-pointer w-full py-2 hover:bg-gray-50">Sobre Nós</button>
-            <button onclick="navigateTo('news')" class="text-secondary text-lg font-medium cursor-pointer w-full py-2 hover:bg-gray-50">Segurança em Pauta</button>
+            <button onclick="navigateTo('home')" class="text-gray-800 text-lg font-semibold cursor-pointer w-full py-2 hover:bg-gray-50">Início</button>
+            <button onclick="navigateTo('about')" class="text-gray-800 text-lg font-semibold cursor-pointer w-full py-2 hover:bg-gray-50">Sobre Nós</button>
+            <button onclick="navigateTo('news')" class="text-gray-800 text-lg font-semibold cursor-pointer w-full py-2 hover:bg-gray-50">Segurança em Pauta</button>
             <button onclick="navigateTo('contact')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold cursor-pointer shadow-lg mt-2">Contato</button>
         </div>
     </header>
@@ -300,7 +327,11 @@
                         <!-- Text -->
                         <div class="lg:w-1/2 text-center lg:text-left">
                             <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm mb-6">
-                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
                                 <span>@sicurezza.engenharia</span>
                             </div>
                             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Acompanhe nosso dia a dia em campo</h2>
@@ -321,7 +352,11 @@
                                         <div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-yellow-400 to-primary">
                                             <div class="w-full h-full rounded-full bg-white p-[2px]">
                                                 <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                                                    <i data-lucide="instagram" class="w-5 h-5 text-gray-500"></i>
+                                                    <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                                    </svg>
                                                 </div>
                                             </div>
                                         </div>
@@ -332,7 +367,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <i data-lucide="instagram" class="text-gray-400 w-6 h-6"></i>
+                                    <svg class="text-gray-400 w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
                                 </div>
                                 <!-- Image with Fallback Logic -->
                                 <div class="relative aspect-square bg-gray-100 overflow-hidden">
@@ -416,7 +455,7 @@
             </section>
 
             <!-- CONTACT SECTION (UPDATED: FALE CONOSCO) -->
-            <section id="contact" class="py-20 bg-[#b5b1a7]">
+            <section id="contact" class="py-20 bg-[#eae7e1]">
                 <div class="container mx-auto px-6">
                     <div class="flex flex-col lg:flex-row gap-12 bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
                         <!-- Info Side -->
@@ -648,26 +687,69 @@
             </section>
         </div>
 
-        <!-- ==================== ARTICLE DETAIL VIEW (OVERLAY MODAL) ==================== -->
-        <div id="article-detail-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 flex justify-center items-start pt-10 pb-10 px-4">
-            <div class="bg-white rounded-3xl w-full max-w-4xl shadow-2xl relative animate-fade-in overflow-hidden max-h-[85vh] flex flex-col mt-4">
-                <!-- Header of the modal (Fixed top controls) -->
-                <div class="px-6 py-4 bg-gray-50 border-b border-gray-100 flex justify-between items-center flex-shrink-0">
-                    <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded">Leitor Sicurezza</span>
-                    <button onclick="closeArticleModal()" class="text-gray-500 hover:text-gray-800 transition-colors p-2 rounded-full hover:bg-gray-100 cursor-pointer">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
+        <!-- ==================== ARTICLE DETAIL VIEW (IMMERSIVE FULL-PAGE MODE) ==================== -->
+        <div id="article-detail-modal" class="fixed inset-0 z-50 bg-white overflow-y-auto hidden flex-col transition-all duration-300 transform translate-y-12 opacity-0">
+            <!-- Sticky Premium Top Navigation Bar -->
+            <div class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-150 px-4 md:px-8 py-4 flex justify-between items-center flex-shrink-0 shadow-sm">
+                <button onclick="closeArticleModal()" class="inline-flex items-center gap-2 text-gray-700 hover:text-primary transition-all font-bold text-xs md:text-sm bg-gray-50 hover:bg-gray-100 px-4 py-2.5 rounded-full border border-gray-250 shadow-sm cursor-pointer group">
+                    <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
+                    <span>Voltar para Artigos</span>
+                </button>
                 
-                <!-- Scrollable Body content -->
-                <div class="overflow-y-auto p-6 md:p-10 flex-grow" id="article-detail-body">
-                    <!-- Dynamic details populated by details mapping -->
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-semibold text-primary bg-primary/10 px-3 py-1.5 rounded-full hidden sm:inline-block">Leitor Sicurezza</span>
+                    
+                    <!-- Share Button & Floating Dropdown -->
+                    <div class="relative inline-block text-left" id="share-menu-container">
+                        <button onclick="toggleShareMenu(event)" class="inline-flex items-center gap-2 text-emerald-800 hover:text-white hover:bg-emerald-600 transition-all font-extrabold text-xs md:text-sm bg-emerald-500/10 px-4 py-2.5 rounded-full border border-emerald-500/30 cursor-pointer">
+                            <i data-lucide="share-2" class="w-4.5 h-4.5"></i>
+                            <span>Compartilhar</span>
+                        </button>
+                        
+                        <!-- Share Options Dropdown -->
+                        <div id="share-dropdown" class="hidden absolute right-0 mt-3 w-56 origin-top-right rounded-2xl bg-white shadow-2xl border border-gray-250 ring-1 ring-black/5 divide-y divide-gray-100 z-50 animate-fade-in">
+                            <div class="p-2 space-y-1">
+                                <button onclick="shareArticle('copy')" class="w-full text-left px-4 py-2.5 text-xs md:text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl flex items-center gap-3 transition-colors cursor-pointer">
+                                    <i data-lucide="copy" class="w-4.5 h-4.5 text-gray-500"></i>
+                                    <span>Copiar Link do Artigo</span>
+                                </button>
+                                <button onclick="shareArticle('whatsapp')" class="w-full text-left px-4 py-2.5 text-xs md:text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl flex items-center gap-3 transition-colors cursor-pointer">
+                                    <svg class="w-4.5 h-4.5 text-green-500 fill-current" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.412-.015.001a11.393 11.393 0 0 1-5.811-1.588L2 21.07l1.3-.341a11.353 11.353 0 0 1-1.558-5.784a11.41 11.41 0 0 1 11.3-11.313 11.41 11.41 0 0 1 11.313 11.41 11.41 0 0 1-11.313 11.313M6.073 17.517l.325.193a9.41 9.41 0 0 0 5.032 1.455h.005a9.461 9.461 0 0 0 9.387-9.39a9.46 9.46 0 0 0-9.387-9.394a9.461 9.461 0 0 0-9.394 9.398a9.432 9.432 0 0 0 1.485 5.029l.195.325l-.766 2.798l2.87-.751a1.18 1.18 0 0 1-.34-.002Z"/>
+                                    </svg>
+                                    <span>Compartilhar WhatsApp</span>
+                                </button>
+                                <button onclick="shareArticle('linkedin')" class="w-full text-left px-4 py-2.5 text-xs md:text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl flex items-center gap-3 transition-colors cursor-pointer">
+                                    <svg class="w-4.5 h-4.5 text-blue-600 fill-current" viewBox="0 0 24 24">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                    <span>Compartilhar LinkedIn</span>
+                                </button>
+                                <button onclick="shareArticle('native')" class="w-full text-left px-4 py-2.5 text-xs md:text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl flex items-center gap-3 transition-colors cursor-pointer">
+                                    <i data-lucide="share" class="w-4.5 h-4.5 text-purple-600"></i>
+                                    <span>Outras Opções</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Immersive Core Layout and Content -->
+            <div class="flex-grow bg-[#fcfbfa]">
+                <div class="container mx-auto max-w-4xl px-4 sm:px-6 py-12 md:py-16">
+                    <div class="bg-white rounded-3xl border border-gray-150 shadow-sm overflow-hidden p-6 md:p-12" id="article-detail-body">
+                        <!-- Filled dynamically by js view wrapper -->
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+        <div id="toast-container" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-[100] pointer-events-none flex flex-col gap-2"></div>
+
     <!-- FOOTER -->
-    <footer class="bg-gray-100 pt-16 pb-8 border-t border-gray-200">
+    <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center mb-10">
                 <div class="mb-6 md:mb-0 text-center md:text-left">
@@ -685,11 +767,15 @@
                 </div>
                 <div class="flex gap-6">
                     <a href="https://www.instagram.com/sicurezza.engenharia/" target="_blank" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-all text-secondary">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
                     </a>
                 </div>
             </div>
-            <div class="border-t border-gray-300 pt-8 text-center">
+            <div class="border-t border-gray-150 pt-8 text-center">
                 <p class="text-sm text-secondary">&copy; <span id="year"></span> Sicurezza Engenharia. Todos os direitos reservados.</p>
             </div>
         </div>
@@ -1272,6 +1358,20 @@
                             A publicação da Portaria MTE nº 737/2026 marca um divisor de águas histórico na engenharia de segurança do trabalho brasileira. Ao reformular a tradicional e por vezes defasada NR-10 (Segurança em Instalações e Serviços em Eletricidade), o Ministério do Trabalho e Emprego não apenas atualiza parâmetros técnicos, mas estabelece um modelo sistêmico de gestão de riscos elétricos alinhado às diretrizes globais e à estrutura moderna da NR-1 (Gerenciamento de Riscos Ocupacionais - GRO).
                         </p>
 
+                        <!-- CTA BLOCK TO DYNAMIC CHECKLIST -->
+                        <div class="bg-primary/5 rounded-2xl p-6 border border-emerald-500/20 my-8 flex flex-col lg:flex-row items-center justify-between gap-6 hover:shadow-sm transition text-left">
+                            <div class="space-y-1">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-bold bg-primary/10 text-primary uppercase">
+                                    <i data-lucide="edit-3" class="w-3 h-3 text-primary"></i> Checklist Interativo NR-10
+                                </span>
+                                <h4 class="font-bold text-gray-950 text-sm md:text-base leading-snug">Sua empresa cumpre com os novos requisitos da Portaria MTE 737/2026?</h4>
+                                <p class="text-xs text-secondary mt-1 leading-relaxed">Disponibilizamos ao final do artigo o formulário oficial completo com 52 itens de auditoria. Responda manualmente cada pergunta para auditar seus sistemas em tempo real.</p>
+                            </div>
+                            <button onclick="scrollToChecklist()" class="px-5.5 py-3.5 rounded-xl bg-primary hover:bg-emerald-700 text-white text-xs font-bold transition cursor-pointer shadow-md flex items-center justify-center gap-2 shrink-0">
+                                <i data-lucide="check-square" class="w-4 h-4 text-white"></i> Preencher Checklist Manualmente
+                            </button>
+                        </div>
+
                         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4 border-b pb-2">INTRODUÇÃO: HISTÓRICO, CONTEXTO E PRÁTICAS INTERNACIONAIS</h2>
                         <p>
                             Para compreender a amplitude da reforma de 2026, é indispensável analisar a trajetória histórica da NR-10. Instituída originalmente na década de 1970 e reformulada de maneira robusta pela Portaria MTPS nº 598 em 2004, a norma permaneceu por mais de duas décadas sem alterações em profunda consonância com o avanço tecnológico das redes elétricas nacionais. Embora o texto de 2004 tenha introduzido conceitos inovadores para a época, como o Prontuário de Instalações Elétricas (PIE) e a obrigatoriedade da desenergização como principal barreira coletiva, o avanço tecnológico de sistemas autônomos, inversores de frequência ruidosos, redes de média tensão inteligentes e sistemas de microgeração descentralizada gerou lacunas técnicas severas de controle.
@@ -1656,18 +1756,393 @@
                             Adequar-se não é apenas um ato de respeito estrito à lei trabalhista: é uma estratégia de conformidade legal de alto valor corporativo que posiciona a organização de forma ética e competitiva no mercado global. A sua empresa já está adequada legalmente a este novo patamar? Converse com engenheiros especializados, audite suas cabines de subestação transformadora de imediato e proteja o seu time técnico de campo em conformidade integral com a nova NR-10!
                         </p>
 
-                        <div class="bg-amber-50 border border-amber-300 rounded-2xl p-6 text-amber-950 mt-8 text-sm">
-                            <h4 class="font-bold flex items-center gap-2 text-base text-amber-950 mb-2">
-                                <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-600"></i>
-                                Atenção, Gestor de SST ou Diretor Industrial!
-                            </h4>
-                            <p class="leading-relaxed text-amber-900">
-                                Evite multas milionárias, embargos rápidos de suas linhas de montagem industriais ou processos doloridos criminais por imprudência em acidentes. Nossa equipe de engenheiros da <strong>Sicurezza Engenharia</strong> possui ampla experiência em inventários de risco termoelétrico, inspeções dinâmicas de SPDA, adequações à nova NR-12 e elaboração em tempo recorde do Prontuário PIE conforme a nova legislação. 
-                                <span class="font-bold cursor-pointer underline text-primary block mt-2" onclick="navigateTo('contact')">Agende agora uma consulta técnica gratuita com nossos especialistas!</span>
-                            </p>
-                        </div>
-                    </div>
-                `
+                         <div class="bg-amber-50 border border-amber-300 rounded-2xl p-6 text-amber-950 mt-8 text-sm">
+                             <h4 class="font-bold flex items-center gap-2 text-base text-amber-950 mb-2">
+                                 <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-600"></i>
+                                 Atenção, Gestor de SST ou Diretor Industrial!
+                             </h4>
+                             <p class="leading-relaxed text-amber-900">
+                                 Evite multas milionárias, embargos rápidos de suas linhas de montagem industriais ou processos doloridos criminais por imprudência em acidentes. Nossa equipe de engenheiros da <strong>Sicurezza Engenharia</strong> possui ampla experiência em inventários de risco termoelétrico, inspeções dinâmicas de SPDA, adequações à nova NR-12 e elaboração em tempo recorde do Prontuário PIE conforme a nova legislação. 
+                                 <span class="font-bold cursor-pointer underline text-primary block mt-2" onclick="navigateTo('contact')">Agende agora uma consulta técnica gratuita com nossos especialistas!</span>
+                             </p>
+                         </div>
+
+                         <!-- NEW SUMMARY & TABLE START -->
+                         <h2 class="text-2xl font-extrabold text-gray-900 mt-12 mb-4 border-b pb-2">Resumo Prático das Alterações da NR-10 – Antes e Depois da Modernização</h2>
+                         <p class="text-base text-gray-700 mb-6">A tabela abaixo apresenta uma visão objetiva das principais mudanças promovidas pela atualização da NR-10, permitindo compreender de forma rápida o impacto das novas exigências para empregadores, trabalhadores e profissionais de Segurança e Saúde no Trabalho.</p>
+                         
+                         <div class="overflow-x-auto my-8 border border-gray-150 rounded-2xl shadow-sm">
+                             <table class="min-w-full divide-y divide-gray-200 text-xs md:text-sm text-left">
+                                 <thead class="bg-gray-50 text-gray-900 font-bold">
+                                     <tr>
+                                         <th class="px-5 py-4 w-1/4">Tema</th>
+                                         <th class="px-5 py-4 w-3/8">Como Era</th>
+                                         <th class="px-5 py-4 w-3/8">Como Ficou</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="divide-y divide-gray-150 text-gray-750">
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Campo de Aplicação</td>
+                                         <td class="px-5 py-4">Redação mais genérica sobre atividades envolvendo eletricidade.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Campo de aplicação atualizado e alinhado às tecnologias, formas de trabalho e instalações elétricas atuais.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Gestão de Riscos</td>
+                                         <td class="px-5 py-4">Forte foco em medidas técnicas e documentação tradicional.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Integração mais clara com o Programa de Gerenciamento de Riscos (PGR) da NR-1.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Análise de Risco</td>
+                                         <td class="px-5 py-4">Exigida para determinadas atividades, sem detalhamento mais robusto.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Maior ênfase na avaliação formal dos perigos e riscos antes da execução das atividades.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Planejamento dos Trabalhos</td>
+                                         <td class="px-5 py-4">Tratado de forma menos estruturada.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Reforço na necessidade de planejamento prévio e definição de medidas de controle.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Organização do Trabalho</td>
+                                         <td class="px-5 py-4">Pouca abordagem sobre fatores organizacionais.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Inclusão de requisitos mais alinhados à gestão moderna de SST e controle operacional.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Capacitação dos Trabalhadores</td>
+                                         <td class="px-5 py-4">Foco predominante nos cursos básico e complementar.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Regras atualizadas para capacitação, reciclagens e manutenção da competência dos trabalhadores.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Treinamento</td>
+                                         <td class="px-5 py-4">Requisitos mais limitados quanto às metodologias utilizadas.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Possibilidade de utilização de recursos educacionais mais modernos, mantendo os requisitos mínimos obrigatórios.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Documentação</td>
+                                         <td class="px-5 py-4">Diversos documentos exigidos de forma isolada.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Maior integração documental com o sistema de gestão de SST da empresa.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Procedimentos de Trabalho</td>
+                                         <td class="px-5 py-4">Exigidos, porém com menor detalhamento sobre revisão e atualização.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Reforço da necessidade de procedimentos atualizados e compatíveis com os riscos existentes.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Instalações Desenergizadas</td>
+                                         <td class="px-5 py-4">Tratamento tradicional baseado na sequência de desenergização.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Mantém os princípios fundamentais, porém com redação mais atualizada e alinhada às boas práticas internacionais.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Trabalho em Instalações Energizadas</td>
+                                         <td class="px-5 py-4">Requisitos já existentes, porém dispersos em alguns pontos da norma.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Consolidação e reforço das medidas de controle e responsabilidades.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Responsabilidades do Empregador</td>
+                                         <td class="px-5 py-4">Obrigações distribuídas ao longo da norma.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Maior clareza na definição das responsabilidades organizacionais.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Responsabilidades dos Trabalhadores</td>
+                                         <td class="px-5 py-4">Definições existentes, mas menos detalhadas.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Reforço do papel do trabalhador no cumprimento dos procedimentos e medidas de controle.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Medidas de Controle</td>
+                                         <td class="px-5 py-4">Predominância da proteção coletiva e individual.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Mantém a hierarquia de controle, reforçando a gestão integrada dos riscos elétricos.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Prontuário das Instalações Elétricas (PIE)</td>
+                                         <td class="px-5 py-4">Obrigatório em situações específicas previstas na norma.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Mantido, porém com alinhamentos de redação e atualização de conceitos.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Tecnologias Modernas</td>
+                                         <td class="px-5 py-4">Pouca referência às transformações tecnológicas ocorridas nos últimos anos.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Texto atualizado para melhor adequação às novas tecnologias e formas de organização do trabalho.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Fiscalização</td>
+                                         <td class="px-5 py-4">Verificação predominantemente documental e operacional.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Tendência de avaliação mais integrada da gestão dos riscos elétricos.</td>
+                                     </tr>
+                                     <tr>
+                                         <td class="px-5 py-4 font-bold text-gray-900">Integração com Outras NRs</td>
+                                         <td class="px-5 py-4">Existia, mas nem sempre de forma harmonizada.</td>
+                                         <td class="px-5 py-4 text-emerald-950 font-medium bg-emerald-50/10">Maior alinhamento com a NR-1, PGR e demais normas regulamentadoras modernizadas.</td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                         
+                         <hr class="border-gray-150 my-10">
+                         
+                         <h3 class="text-2xl font-bold text-gray-900 mt-10 mb-6">O Que Muda na Prática Para as Empresas?</h3>
+                         <div class="grid md:grid-cols-2 gap-8 my-8">
+                             <div class="bg-gray-50 p-6 rounded-2xl border border-gray-150 shadow-sm relative overflow-hidden group hover:shadow-md transition-all duration-300">
+                                 <div class="absolute top-0 left-0 w-1.5 h-full bg-red-400"></div>
+                                 <h4 class="font-extrabold text-red-700 text-lg mb-4 flex items-center gap-2">
+                                     <span class="w-1.5 h-4 bg-red-400 rounded-full inline-block"></span>
+                                     Antes (Foco Documental)
+                                 </h4>
+                                 <p class="text-sm text-gray-600 mb-4 font-medium">Muitas organizações concentravam seus esforços em:</p>
+                                 <ul class="space-y-3">
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-gray-700">
+                                         <span class="text-red-500 font-bold select-none text-base leading-none">✕</span>
+                                         <span>Treinamento NR-10 básico tradicional uniforme;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-gray-700">
+                                        <span class="text-red-500 font-bold select-none text-base leading-none">✕</span>
+                                         <span>Emissão padrão de procedimentos de segurança sem revisões periódicas periódicas;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-gray-700">
+                                        <span class="text-red-500 font-bold select-none text-base leading-none">✕</span>
+                                         <span>Manutenção do prontuário apenas para cumprimento burocrático inicial;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-gray-700">
+                                        <span class="text-red-500 font-bold select-none text-base leading-none">✕</span>
+                                         <span>Uso genérico de EPIs e EPCs sem dimensionamento técnico preciso;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-gray-700">
+                                        <span class="text-red-500 font-bold select-none text-base leading-none">✕</span>
+                                         <span>Atendimento documental mínimo para evitar autuações fiscais superficiais.</span>
+                                     </li>
+                                 </ul>
+                             </div>
+                             
+                             <div class="bg-emerald-50/40 p-6 rounded-2xl border border-emerald-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all duration-300">
+                                 <div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+                                 <h4 class="font-extrabold text-primary text-lg mb-4 flex items-center gap-2">
+                                     <span class="w-1.5 h-4 bg-primary rounded-full inline-block animate-pulse"></span>
+                                     Agora (Gestão Ativa)
+                                 </h4>
+                                 <p class="text-sm text-emerald-950 mb-4 font-medium">As empresas precisarão demonstrar de forma mais consistente que:</p>
+                                 <ul class="space-y-3">
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-900">
+                                         <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>Os riscos elétricos foram formalmente identificados e avaliados de forma contínua;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-900">
+                                        <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>As atividades e cronogramas operacionais foram devidamente planejados sob controle técnico;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-900">
+                                        <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>Os procedimentos estão dinamicamente atualizados e compatíveis à planta física real;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-900">
+                                        <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>Os trabalhadores envolvidos permanecem plenamente capacitados e qualificados por cargo;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-900">
+                                        <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>As medidas de engenharia de proteção coletiva e vestimentas térmicas são efetivamente implementadas;</span>
+                                     </li>
+                                     <li class="flex items-start gap-2.5 text-xs md:text-sm text-emerald-905">
+                                        <span class="text-primary font-bold select-none text-base leading-none">✓</span>
+                                         <span>A gestão integral de riscos e controle de instalações elétricas está interligada ao PGR (NR-1).</span>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                         
+                         <hr class="border-gray-150 my-10">
+                         
+                         <h3 class="text-2xl font-bold text-gray-900 mt-10 mb-6">Quem Ganha Com a Nova NR-10?</h3>
+                         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+                             <div class="bg-white p-5 rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition">
+                                 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mb-3">
+                                     <i data-lucide="users" class="text-primary w-5 h-5"></i>
+                                 </div>
+                                 <h4 class="font-bold text-gray-900 text-sm mb-1">Trabalhadores</h4>
+                                 <p class="text-xs text-gray-600">Ganham maior proteção, melhor planejamento ativo de suas rotinas de campo e maior controle operacional sobre perigos de arco elétrico.</p>
+                             </div>
+                             <div class="bg-white p-5 rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition">
+                                 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mb-3">
+                                     <i data-lucide="building-2" class="text-primary w-5 h-5"></i>
+                                 </div>
+                                 <h4 class="font-bold text-gray-900 text-sm mb-1">Empregadores</h4>
+                                 <p class="text-xs text-gray-600">Passam a dispor de extrema segurança jurídica, maior padronização de laudos técnicos e perfeita integração aos canais de fiscalização eletrônicos.</p>
+                             </div>
+                             <div class="bg-white p-5 rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition">
+                                 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mb-3">
+                                     <i data-lucide="activity" class="text-primary w-5 h-5"></i>
+                                 </div>
+                                 <h4 class="font-bold text-gray-900 text-sm mb-1">SESMT</h4>
+                                 <p class="text-xs text-gray-600">Conta com critérios extremamente claros e objetivos para gerenciamento qualificado e monitoramento físico-digital de riscos elétricos.</p>
+                             </div>
+                             <div class="bg-white p-5 rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition">
+                                 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mb-3">
+                                     <i data-lucide="award" class="text-primary w-5 h-5"></i>
+                                 </div>
+                                 <h4 class="font-bold text-gray-900 text-sm mb-1">Engenheiros e Técnicos</h4>
+                                 <p class="text-xs text-gray-600">Operam com base em uma norma muito mais alinhada e sintonizada à lógica moderna e integrada de gestão de riscos ocupacionais.</p>
+                             </div>
+                             <div class="bg-white p-5 rounded-xl border border-gray-150 shadow-sm hover:shadow-md transition md:col-span-2 lg:col-span-1">
+                                 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center mb-3">
+                                     <i data-lucide="shield-check" class="text-primary w-5 h-5"></i>
+                                 </div>
+                                 <h4 class="font-bold text-gray-900 text-sm mb-1">Fiscalização</h4>
+                                 <p class="text-xs text-gray-600">Passa a contar com instrumentos modernos, precisos e transparentes para avaliar a adequação plena das organizações industriais brasileiras.</p>
+                             </div>
+                         </div>
+                         
+                         <hr class="border-gray-150 my-10">
+                         
+                         <div class="bg-emerald-950 text-white rounded-3xl p-8 my-10 relative overflow-hidden shadow-xl">
+                             <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-emerald-800 rounded-full opacity-20 pointer-events-none"></div>
+                             <div class="absolute -left-12 -top-12 w-48 h-48 bg-primary rounded-full opacity-10 pointer-events-none"></div>
+                             
+                             <div class="relative z-10 w-full">
+                                 <h3 class="text-2xl md:text-3xl font-extrabold mb-4 flex items-center gap-3">
+                                     <span class="w-2.5 h-6 bg-yellow-400 rounded-full inline-block"></span>
+                                     Principal Mensagem da Modernização
+                                 </h3>
+                                 <p class="text-base md:text-lg text-emerald-100 leading-relaxed font-light mb-6">
+                                     A nova NR-10 não altera os fundamentos consagrados da segurança em eletricidade, mas fortalece de modo cirúrgico a integração ativa entre a proteção dos trabalhadores, o gerenciamento dos riscos ocupacionais gerais e a gestão moderna de Segurança e Saúde no Trabalho.
+                                 </p>
+                                 <p class="text-sm md:text-base text-emerald-200 leading-relaxed font-normal">
+                                     Em outras palavras, a modernização desloca o foco do simples cumprimento documental estanque para uma <strong>gestão ativa, estratégica e eficaz dos riscos elétricos</strong>, baseada inteiramente em planejamento estruturado, capacitação contínua de competências, melhoria funcional de engenharia e total compromisso operacional com a vida.
+                                 </p>
+                             </div>
+                         </div>
+
+                         <hr class="border-gray-150 my-12">
+                         
+                         <!-- CHECKLIST DE CONFORMIDADE INTERATIVO -->
+                         <div id="nr10-checklist-section" class="bg-gray-50 border border-gray-200 rounded-3xl p-6 md:p-8 my-10 shadow-sm text-left">
+                             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+                                 <div>
+                                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary mb-2">
+                                         <i data-lucide="check-square" class="w-3.5 h-3.5 text-primary"></i> Ferramenta Interativa
+                                     </span>
+                                     <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight">CHECKLIST DE CONFORMIDADE – NOVA NR-10</h2>
+                                     <p class="text-xs md:text-sm text-gray-600 mt-1">Conforme as diretrizes e alterações da Portaria MTE nº 737/2026. Responda cada item de verificação para calcular o percentual de conformidade de sua empresa em tempo real.</p>
+                                 </div>
+                             </div>
+
+                             <!-- Score Widget Dashboard -->
+                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white border border-gray-150 rounded-2xl p-6 mb-8 shadow-sm">
+                                 <div class="flex flex-col justify-between">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Status de Conformidade</span>
+                                     <div id="checklist-status-badge" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-slate-100 text-slate-700">
+                                         <span class="w-2 h-2 rounded-full bg-slate-400"></span> Não Iniciado
+                                     </div>
+                                     <p id="checklist-status-desc" class="text-xs text-secondary mt-2">Responda aos itens de auditoria abaixo para visualizar as recomendações técnicas personalizadas.</p>
+                                 </div>
+                                 <div class="flex flex-col justify-center items-center py-4 border-y md:border-y-0 md:border-x border-gray-100">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Conformidade Técnica</span>
+                                     <div class="flex items-baseline gap-1">
+                                         <span id="checklist-percentage" class="text-4xl md:text-5xl font-black text-gray-900">0</span>
+                                         <span class="text-xl md:text-2xl font-bold text-gray-400">%</span>
+                                     </div>
+                                     <div class="w-full max-w-[200px] bg-slate-200/50 h-2 rounded-full mt-3 overflow-hidden">
+                                         <div id="checklist-progress-bar" class="w-0 bg-primary h-full rounded-full transition-all duration-300"></div>
+                                     </div>
+                                     <span id="checklist-stats-text" class="text-[10px] text-gray-400 font-medium mt-2">0 de 52 itens respondidos</span>
+                                 </div>
+                                 <div class="flex flex-col justify-between h-full gap-4">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block font-semibold leading-tight text-gray-700">Exportar Relatório</span>
+                                     <div class="grid grid-cols-1 gap-2 mt-auto">
+                                         <button onclick="printNR10Report()" class="w-full flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-primary hover:bg-emerald-700 px-3 py-3 rounded-xl transition cursor-pointer shadow-sm">
+                                             <i data-lucide="file-text" class="w-4 h-4"></i> Imprimir / Gerar PDF
+                                         </button>
+                                     </div>
+                                     <button onclick="shareNR10WhatsApp()" class="w-full flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-[#25D366] hover:bg-[#20ba5a] px-3.5 py-3 rounded-xl transition cursor-pointer shadow-sm">
+                                         <svg class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.412-.015.001a11.393 11.393 0 0 1-5.811-1.588L2 21.07l1.3-.341a11.353 11.353 0 0 1-1.558-5.784a11.41 11.41 0 0 1 11.3-11.313 11.41 11.41 0 0 1 11.313 11.41 11.41 0 0 1-11.313 11.313M6.073 17.517l.325.193a9.41 9.41 0 0 0 5.032 1.455h.005a9.461 9.461 0 0 0 9.387-9.39a9.46 9.46 0 0 0-9.387-9.394a9.461 9.461 0 0 0-9.394 9.398a9.432 9.432 0 0 0 1.485 5.029l.195.325l-.766 2.798l2.87-.751a1.18 1.18 0 0 1-.34-.002Z"/></svg> Compartilhar via WhatsApp
+                                     </button>
+                                 </div>
+                             </div>
+
+
+                             <!-- Dynamic Checklist Table -->
+                             <!-- IDENTIFICAÇÃO PERSONALIZADA DO RELATÓRIO (OPCIONAL) -->
+                             <div class="bg-white border border-gray-150 rounded-2xl p-5 md:p-6 mb-8 shadow-sm">
+                                 <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-4 flex items-center gap-1.5 font-semibold text-gray-700">
+                                     <i class="w-4 h-4 text-primary" data-lucide="user"></i> Identificação do Diagnóstico (Exibido no Relatório Impresso)
+                                 </h3>
+                                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                     <div class="flex flex-col gap-1.5 align-left text-left">
+                                         <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wide">Empresa / Unidade</label>
+                                         <input type="text" id="nr10-report-company" placeholder="Ex: Sicurezza Engenharia" 
+                                             oninput="localStorage.setItem('nr10_report_company', this.value)"
+                                             class="w-full text-xs bg-gray-50 border border-gray-200 hover:border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 rounded-xl p-3 outline-none transition font-medium text-gray-800">
+                                     </div>
+                                     <div class="flex flex-col gap-1.5 align-left text-left">
+                                         <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wide">Auditor / Responsável</label>
+                                         <input type="text" id="nr10-report-auditor" placeholder="Ex: Eng. Paulo Steluti" 
+                                             oninput="localStorage.setItem('nr10_report_auditor', this.value)"
+                                             class="w-full text-xs bg-gray-50 border border-gray-200 hover:border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 rounded-xl p-3 outline-none transition font-medium text-gray-800">
+                                     </div>
+                                     <div class="flex flex-col gap-1.5 align-left text-left">
+                                         <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wide">Setor / Área Analisada</label>
+                                         <input type="text" id="nr10-report-sector" placeholder="Ex: Cabine Primária / Fábrica" 
+                                             oninput="localStorage.setItem('nr10_report_sector', this.value)"
+                                             class="w-full text-xs bg-gray-50 border border-gray-200 hover:border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 rounded-xl p-3 outline-none transition font-medium text-gray-800">
+                                     </div>
+                                     <div class="flex flex-col gap-1.5 align-left text-left">
+                                         <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wide">Data da Auditoria</label>
+                                         <input type="date" id="nr10-report-date" 
+                                             onchange="localStorage.setItem('nr10_report_date', this.value)"
+                                             class="w-full text-xs bg-gray-50 border border-gray-200 hover:border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 rounded-xl p-3 outline-none transition font-medium text-gray-800">
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div id="nr10-checklist-root" class="space-y-6"></div>
+
+                             <!-- Score Widget Dashboard Bottom -->
+                             <div id="nr10-checklist-summary-bottom" class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white border border-gray-150 rounded-2xl p-6 mt-8 mb-4 shadow-sm text-left">
+                                 <div class="flex flex-col justify-between">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1 font-semibold leading-tight text-gray-700">Status de Conformidade</span>
+                                     <div id="checklist-status-badge-bottom" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-slate-100 text-slate-700 select-none">
+                                         <span class="w-2 h-2 rounded-full bg-slate-400"></span> Não Iniciado
+                                     </div>
+                                     <p id="checklist-status-desc-bottom" class="text-xs text-secondary mt-2 leading-relaxed">Responda aos itens de auditoria abaixo para visualizar as recomendações técnicas personalizadas.</p>
+                                 </div>
+                                 <div class="flex flex-col justify-center items-center py-4 border-y md:border-y-0 md:border-x border-gray-100">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 font-semibold leading-tight text-gray-700">Conformidade Técnica</span>
+                                     <div class="flex items-baseline gap-1">
+                                         <span id="checklist-percentage-bottom" class="text-4xl md:text-5xl font-black text-gray-900 leading-none">0</span>
+                                         <span class="text-xl md:text-2xl font-bold text-gray-400">%</span>
+                                     </div>
+                                     <div class="w-full max-w-[200px] bg-slate-200/50 h-2 rounded-full mt-3 overflow-hidden">
+                                         <div id="checklist-progress-bar-bottom" class="w-0 bg-primary h-full rounded-full transition-all duration-300"></div>
+                                     </div>
+                                     <span id="checklist-stats-text-bottom" class="text-[10px] text-gray-400 font-medium mt-2">0 de 52 itens respondidos</span>
+                                 </div>
+                                 <div class="flex flex-col justify-between h-full gap-4">
+                                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block font-semibold leading-tight text-gray-700">Exportar Relatório</span>
+                                     <div class="grid grid-cols-1 gap-2 mt-auto">
+                                         <button onclick="printNR10Report()" class="w-full flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-primary hover:bg-emerald-700 px-3 py-3 rounded-xl transition cursor-pointer shadow-sm">
+                                              <i data-lucide="file-text" class="w-4 h-4"></i> Imprimir / Gerar PDF
+                                         </button>
+                                     </div>
+                                     <button onclick="shareNR10WhatsApp()" class="w-full flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-[#25D366] hover:bg-[#20ba5a] px-3.5 py-3 rounded-xl transition cursor-pointer shadow-sm">
+                                         <svg class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.412-.015.001a11.393 11.393 0 0 1-5.811-1.588L2 21.07l1.3-.341a11.353 11.353 0 0 1-1.558-5.784a11.41 11.41 0 0 1 11.3-11.313 11.41 11.41 0 0 1 11.313 11.41 11.41 0 0 1-11.313 11.313M6.073 17.517l.325.193a9.41 9.41 0 0 0 5.032 1.455h.005a9.461 9.461 0 0 0 9.387-9.39a9.46 9.46 0 0 0-9.387-9.394a9.461 9.461 0 0 0-9.394 9.398a9.432 9.432 0 0 0 1.485 5.029l.195.325l-.766 2.798l2.87-.751a1.18 1.18 0 0 1-.34-.002Z"/></svg> Compartilhar via WhatsApp
+                                     </button>
+                                 </div>
+                             </div>
+
+                             <div class="flex flex-col sm:flex-row items-center justify-between border-t border-gray-205 mt-8 pt-6 gap-4">
+                                 <p class="text-xs text-gray-400 font-medium">Copyright © 2026 Sicurezza Engenharia. Elaborado sob a Portaria MTE nº 737/2026.</p>
+                                 <button onclick="resetNR10Checklist()" class="text-xs font-bold text-red-655 hover:text-red-700 bg-red-50 hover:bg-red-100/80 border border-red-100 px-4.5 py-2.5 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
+                                     <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-red-655"></i> Resetar Respostas
+                                 </button>
+                             </div>
+                         </div>
+
+                         <!-- Hidden items to sink original closing tags gracefully -->
+                         <div class="hidden">
+                             <div>
+                                 <div>
+                                     <div>
+
+                                 </p>
+                             </div>
+                         </div>
+                     </div>
+                 `
             },
             {
                 id: 1,
@@ -2145,75 +2620,296 @@
             });
         }
 
+        // ==================== ARTICLE DETAIL VIEW & SHARE LOGIC (IMMERSIVE PAGE MODE) ====================
+        let activeArticleId = null;
+
+        function toggleShareMenu(event) {
+            if (event) event.stopPropagation();
+            const dropdown = document.getElementById('share-dropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('hidden');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('share-dropdown');
+            if (dropdown && !dropdown.classList.contains('hidden')) {
+                const container = document.getElementById('share-menu-container');
+                if (container && !container.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            }
+        });
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = "bg-gray-900 border border-gray-800 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs md:text-sm font-semibold pointer-events-auto transition-all duration-300 transform translate-y-3 opacity-0";
+            toast.innerHTML = `
+                <i data-lucide="check-circle" class="w-4.5 h-4.5 text-emerald-400 flex-shrink-0"></i>
+                <span class="leading-relaxed">${message}</span>
+            `;
+            container.appendChild(toast);
+            
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+
+            // Slide & Fade In
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'translate-y-3');
+                toast.classList.add('opacity-100', 'translate-y-0');
+            }, 30);
+
+            // Fade Out and Delete
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-3');
+                setTimeout(() => {
+                    toast.remove();
+                }, 350);
+            }, 3000);
+        }
+
+        function shareArticle(type) {
+            if (!activeArticleId) return;
+            const article = ARTICLES.find(art => art.id === activeArticleId);
+            if (!article) return;
+
+            const title = article.title;
+            const subtitle = article.subtitle;
+            const shareUrl = `${window.location.origin}${window.location.pathname}?artigo=${activeArticleId}`;
+
+            // Close share dropdown
+            const dropdown = document.getElementById('share-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+
+            if (type === 'copy') {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(shareUrl).then(() => {
+                        showToast('Link copiado para a área de transferência!');
+                    }).catch(() => {
+                        fallbackCopyText(shareUrl);
+                    });
+                } else {
+                    fallbackCopyText(shareUrl);
+                }
+            } else if (type === 'whatsapp') {
+                const text = `Confira este artigo excelente da Sicurezza Engenharia:\n\n*${title}*\n_${subtitle}_\n\nLeia completo em:\n${shareUrl}`;
+                const encodedText = encodeURIComponent(text);
+                const url = `https://api.whatsapp.com/send?text=${encodedText}`;
+                window.open(url, '_blank');
+            } else if (type === 'linkedin') {
+                const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+                window.open(url, '_blank');
+            } else if (type === 'native') {
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: subtitle,
+                        url: shareUrl,
+                    }).then(() => {
+                        showToast('Artigo compartilhado com sucesso!');
+                    }).catch((err) => {
+                        // Suppress user cancel clicks
+                    });
+                } else {
+                    // Fallback to clipboard
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(shareUrl).then(() => {
+                            showToast('Link copiado para a área de transferência!');
+                        });
+                    } else {
+                        fallbackCopyText(shareUrl);
+                    }
+                }
+            }
+        }
+
+        // Old browsers fallback for clipboard copy
+        function fallbackCopyText(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed"; 
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('Link copiado com sucesso!');
+                } else {
+                    showToast('Por favor, copie o endereço do navegador.');
+                }
+            } catch (err) {
+                showToast('Por favor, copie o endereço do navegador.');
+            }
+            document.body.removeChild(textArea);
+        }
+
         // Article Modal Open/Close handlers
-        function openArticleModal(id) {
+        function openArticleModal(id, preventPushState) {
             const article = ARTICLES.find(art => art.id === id);
             if (!article) return;
+
+            activeArticleId = id;
 
             const modal = document.getElementById('article-detail-modal');
             const modalBody = document.getElementById('article-detail-body');
 
-            // Build structural full content view
+            // Build structural full content view mimicking a premium webpage
             modalBody.innerHTML = `
-                <div class="mb-4 text-xs font-semibold text-secondary flex items-center justify-between uppercase">
-                    <span>${article.categoryLabel}</span>
-                    <span>${article.readTime}</span>
-                </div>
-                <h1 class="text-2xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">${article.title}</h1>
-                <p class="text-secondary text-sm md:text-base leading-relaxed mb-6 italic">${article.subtitle}</p>
-                
-                <div class="flex items-center gap-4 border-b border-gray-100 pb-6 mb-8 text-xs text-secondary">
-                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-sm uppercase">
-                        ${article.author.split(' ').map(n=>n[0]).join('')}
+                <!-- Breadcrumbs row -->
+                <nav class="flex text-[10px] md:text-xs font-bold text-gray-400 mb-6 gap-2 items-center uppercase tracking-wide">
+                    <span class="hover:text-primary transition-colors cursor-pointer" onclick="closeArticleModal()">Artigos</span>
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                    <span class="text-primary">${article.categoryLabel}</span>
+                </nav>
+
+                <!-- Heading Title -->
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">${article.title}</h1>
+                <p class="text-secondary text-sm md:text-lg mb-8 leading-relaxed font-light border-l-4 border-primary pl-4 py-1 italic">${article.subtitle}</p>
+
+                <!-- Author details bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-6 mb-8 text-xs text-secondary">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-extrabold text-primary text-base uppercase shadow-inner">
+                            ${article.author.split(' ').map(n=>n[0]).join('')}
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">${article.author}</p>
+                            <p class="text-gray-400 font-medium">${article.date} • Sumaré/SP</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="font-bold text-gray-900">${article.author}</p>
-                        <p>${article.date} • Sumaré/SP</p>
+                    <div class="flex items-center gap-2.5">
+                        <span class="bg-gray-100 text-gray-600 font-medium px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-gray-500"></i>
+                            ${article.readTime}
+                        </span>
                     </div>
                 </div>
 
-                <div class="leading-relaxed text-gray-700 font-light max-w-none">
+                <!-- Central Content of article -->
+                <div class="leading-relaxed text-gray-800 font-light max-w-none hover:prose-a:text-primary">
                     ${article.content}
                 </div>
 
-                <!-- Footer call to action in modal -->
-                <div class="mt-12 pt-8 border-t border-gray-150 flex flex-col md:flex-row justify-between items-center gap-6 bg-gray-50/70 p-6 rounded-2xl border border-gray-100">
+                <!-- Bottom Quick Inline Share Utilities -->
+                <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gray-50/55 p-6 rounded-2xl border border-gray-100">
                     <div>
-                        <h4 class="font-bold text-gray-950 text-base mb-1">Dúvida sobre o artigo ou precisa de assessoria?</h4>
-                        <p class="text-gray-600 text-xs text-secondary leading-relaxed">Fale diretamente com o autor <strong>Eng. Paulo Steluti</strong> e esclareça suas dúvidas.</p>
+                        <span class="text-xs font-bold text-gray-900 uppercase tracking-widest block mb-1">Gostou desse conteúdo informativo?</span>
+                        <p class="text-xs text-secondary">Compartilhe essa análise com sua equipe técnica de SST.</p>
                     </div>
-                    <a href="https://wa.me/5519994017886?text=Olá, tenho uma dúvida sobre o artigo: ${encodeURIComponent(article.title)}" target="_blank" class="w-full md:w-auto bg-[#25D366] text-white px-6 py-3.5 rounded-xl font-bold hover:bg-[#20ba5a] shadow-md transition-all cursor-pointer text-xs flex items-center justify-center gap-2 whitespace-nowrap">
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <button onclick="shareArticle('whatsapp')" class="inline-flex items-center gap-2 text-xs font-bold bg-[#25D366]/10 hover:bg-[#25D366] hover:text-white text-[#25D366] px-4.5 py-2.5 rounded-full transition-all border border-[#25D366]/20 cursor-pointer shadow-sm">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.412-.015.001a11.393 11.393 0 0 1-5.811-1.588L2 21.07l1.3-.341a11.353 11.353 0 0 1-1.558-5.784a11.41 11.41 0 0 1 11.3-11.313 11.41 11.41 0 0 1 11.313 11.41 11.41 0 0 1-11.313 11.313M6.073 17.517l.325.193a9.41 9.41 0 0 0 5.032 1.455h.005a9.461 9.461 0 0 0 9.387-9.39a9.46 9.46 0 0 0-9.387-9.394a9.461 9.461 0 0 0-9.394 9.398a9.432 9.432 0 0 0 1.485 5.029l.195.325l-.766 2.798l2.87-.751a1.18 1.18 0 0 1-.34-.002Z"/></svg>
+                            <span>WhatsApp</span>
+                        </button>
+                        <button onclick="shareArticle('linkedin')" class="inline-flex items-center gap-2 text-xs font-bold bg-[#0A66C2]/10 hover:bg-[#0A66C2] hover:text-white text-[#0A66C2] px-4.5 py-2.5 rounded-full transition-all border border-[#0A66C2]/20 cursor-pointer shadow-sm">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span>LinkedIn</span>
+                        </button>
+                        <button onclick="shareArticle('copy')" class="inline-flex items-center gap-2 text-xs font-bold bg-primary/5 hover:bg-primary hover:text-white text-primary px-4.5 py-2.5 rounded-full transition-all border border-primary/20 cursor-pointer shadow-sm">
+                            <i data-lucide="link-2" class="w-4 h-4"></i>
+                            <span>Copiar Link</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer contact call to action -->
+                <div class="mt-10 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 bg-[#eae7e1]/30 p-6 rounded-2xl border border-gray-100">
+                    <div>
+                        <h4 class="font-extrabold text-gray-900 text-sm md:text-base mb-1 flex items-center gap-2">
+                            <span class="w-1.5 h-4 bg-primary rounded-full"></span>
+                            Dúvida técnica ou precisa de assessoria especializada?
+                        </h4>
+                        <p class="text-gray-600 text-[11px] md:text-xs">Fale diretamente com o autor <strong>Eng. Paulo Steluti</strong> e regularize sua infraestrutura empresarial.</p>
+                    </div>
+                    <a href="https://wa.me/5519994017886?text=Olá, tenho uma dúvida sobre o artigo: ${encodeURIComponent(article.title)}" target="_blank" class="w-full md:w-auto bg-[#25D366] text-white px-5 py-3.5 rounded-xl font-bold hover:bg-[#20ba5a] hover:scale-[1.02] shadow-sm hover:shadow transition-all cursor-pointer text-xs flex items-center justify-center gap-2 whitespace-nowrap">
                         <svg class="w-4.5 h-4.5 fill-white" viewBox="0 0 24 24">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.412-.015.001a11.393 11.393 0 0 1-5.811-1.588L2 21.07l1.3-.341a11.353 11.353 0 0 1-1.558-5.784a11.41 11.41 0 0 1 11.3-11.313 11.41 11.41 0 0 1 11.313 11.41 11.41 0 0 1-11.313 11.313M6.073 17.517l.325.193a9.41 9.41 0 0 0 5.032 1.455h.005a9.461 9.461 0 0 0 9.387-9.39a9.46 9.46 0 0 0-9.387-9.394a9.461 9.461 0 0 0-9.394 9.398a9.432 9.432 0 0 0 1.485 5.029l.195.325l-.766 2.798l2.87-.751a1.18 1.18 0 0 1-.34-.002Z"/>
                         </svg>
-                        WhatsApp: (19) 99401-7886
+                        Esclarecer Dúvida no WhatsApp
                     </a>
                 </div>
             `;
 
-            // Open Transition
+            // Open Transition (Smooth Sliding full viewport overlay)
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden'); // Disable background scrolling
+            
             setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.querySelector('div').classList.remove('scale-95');
-                modal.querySelector('div').classList.add('scale-100');
+                modal.classList.remove('opacity-0', 'translate-y-12');
+                modal.classList.add('opacity-100', 'translate-y-0');
             }, 10);
+
+            // Update URL parameters dynamically without reloading
+            if (!preventPushState) {
+                const newUrl = `${window.location.origin}${window.location.pathname}?artigo=${id}`;
+                window.history.pushState({ artigoId: id }, '', newUrl);
+            }
 
             // Recreate icons in the dynamic modal context
             if (window.lucide) {
                 window.lucide.createIcons();
             }
+
+            if (id === 7 || id === 0 || document.getElementById('nr10-checklist-section') || document.getElementById('nr10-checklist-root')) {
+                setTimeout(() => {
+                    if (typeof initNR10Checklist === 'function') {
+                        initNR10Checklist();
+                    }
+                }, 150);
+            }
         }
 
-        function closeArticleModal() {
+        function closeArticleModal(preventPushState) {
             const modal = document.getElementById('article-detail-modal');
-            modal.classList.add('opacity-0');
-            modal.querySelector('div').classList.remove('scale-100');
-            modal.querySelector('div').classList.add('scale-95');
+            if (!modal) return;
+
+            modal.classList.remove('opacity-100', 'translate-y-0');
+            modal.classList.add('opacity-0', 'translate-y-12');
+            document.body.classList.remove('overflow-hidden'); // Re-enable scrolling
+
             setTimeout(() => {
                 modal.classList.add('hidden');
+                modal.classList.remove('flex');
             }, 300);
+
+            activeArticleId = null;
+
+            // Clear URL artigo parameter dynamically without reloading
+            if (!preventPushState) {
+                const newUrl = `${window.location.origin}${window.location.pathname}`;
+                window.history.pushState(null, '', newUrl);
+            }
         }
+
+        // Popstate back button support
+        window.addEventListener('popstate', (e) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const artigoId = urlParams.get('artigo');
+            if (artigoId) {
+                openArticleModal(parseInt(artigoId), true);
+            } else {
+                closeArticleModal(true);
+            }
+        });
+
+        // Autoload article from URL query on page start
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const artigoId = urlParams.get('artigo');
+            if (artigoId) {
+                setTimeout(() => {
+                    navigateTo('news');
+                    openArticleModal(parseInt(artigoId), true);
+                }, 350);
+            }
+        });
 
         // Newsletter subscription handler
         const nlForm = document.getElementById('newsletter-form');
@@ -2260,6 +2956,885 @@
                 }
             });
         }
+
+        // ==================== CHECKLIST DE CONFORMIDADE DA NOVA NR-10 (PORTARIA 737/2026) ====================
+        const CHECKLIST_SECTIONS = [
+            {
+                title: "1. GERENCIAMENTO DE RISCOS OCUPACIONAIS (GRO)",
+                items: [
+                    { id: "gro_1", text: "Os perigos elétricos foram identificados no PGR?", ref: "10.1.1 e 10.3" },
+                    { id: "gro_2", text: "Foram avaliados riscos de choque elétrico?", ref: "10.3" },
+                    { id: "gro_3", text: "Foram avaliados riscos de arco elétrico?", ref: "10.2.3 e 10.3" },
+                    { id: "gro_4", text: "Foram avaliados riscos em corrente contínua (CC)?", ref: "10.2.1" },
+                    { id: "gro_5", text: "Foram avaliados riscos em baixa, média e alta tensão?", ref: "10.2.1" },
+                    { id: "gro_6", text: "As medidas de controle estão registradas no PGR?", ref: "10.3" }
+                ]
+            },
+            {
+                title: "2. PROJETO ELÉTRICO",
+                items: [
+                    { id: "proj_1", text: "Existe projeto elétrico atualizado?", ref: "10.4 e 10.15.3" },
+                    { id: "proj_2", text: "O projeto contempla aterramento e proteção?", ref: "10.4" },
+                    { id: "proj_3", text: "O projeto considera riscos de arco elétrico quando aplicável?", ref: "10.4" },
+                    { id: "proj_4", text: "Existem registros de inspeções dos aterramentos?", ref: "10.15.3" }
+                ]
+            },
+            {
+                title: "3. MEDIDAS ADMINISTRATIVAS E ORGANIZAÇÃO DO TRABALHO",
+                items: [
+                    { id: "adm_1", text: "Existe planejamento prévio das atividades elétricas?", ref: "10.7" },
+                    { id: "adm_2", text: "São realizadas análises de risco antes das intervenções?", ref: "10.7" },
+                    { id: "adm_3", text: "Existe Permissão de Trabalho quando aplicável?", ref: "10.7 e 10.15.4(a)" },
+                    { id: "adm_4", text: "Há procedimentos formais para execução dos serviços?", ref: "10.7 e 10.15.4(a)" }
+                ]
+            },
+            {
+                title: "4. QUALIFICAÇÃO, HABILITAÇÃO E CAPACITAÇÃO",
+                items: [
+                    { id: "cap_1", text: "Os trabalhadores possuem comprovação de qualificação?", ref: "10.8" },
+                    { id: "cap_2", text: "Os trabalhadores habilitados possuem registro profissional quando exigido?", ref: "10.8" },
+                    { id: "cap_3", text: "Os trabalhadores capacitados possuem plano de aprendizagem formalizado?", ref: "10.8" },
+                    { id: "cap_4", text: "Existe prática supervisionada documentada?", ref: "10.8" }
+                ]
+            },
+            {
+                title: "5. TREINAMENTOS NR-10",
+                items: [
+                    { id: "tre_1", text: "Treinamento Inicial Básico de 40h realizado?", ref: "10.9 e Anexo III" },
+                    { id: "tre_2", text: "Treinamento SEP realizado quando aplicável?", ref: "10.9 e Anexo III" },
+                    { id: "tre_3", text: "Reciclagens realizadas dentro dos prazos?", ref: "10.9" },
+                    { id: "tre_4", text: "Existem certificados e listas de presença arquivados?", ref: "10.15.4(c)" }
+                ]
+            },
+            {
+                title: "6. AUTORIZAÇÃO DOS TRABALHADORES",
+                items: [
+                    { id: "aut_1", text: "Existe autorização formal para os trabalhadores?", ref: "10.10" },
+                    { id: "aut_2", text: "As autorizações possuem abrangência definida?", ref: "10.10" },
+                    { id: "aut_3", text: "Existe matriz de autorização atualizada?", ref: "10.10" }
+                ]
+            },
+            {
+                title: "7. EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL",
+                items: [
+                    { id: "epi_1", text: "Foram definidos EPIs para risco elétrico?", ref: "10.11" },
+                    { id: "epi_2", text: "Existe proteção contra arco elétrico quando aplicável?", ref: "10.11 e Anexo IV" },
+                    { id: "epi_3", text: "Há controle de entrega dos EPIs?", ref: "10.11 e NR-6" },
+                    { id: "epi_4", text: "Os EPIs são compatíveis com os riscos avaliados?", ref: "10.11" }
+                ]
+            },
+            {
+                title: "8. DESENERGIZAÇÃO",
+                items: [
+                    { id: "des_1", text: "Existe procedimento formal de desenergização?", ref: "10.13" },
+                    { id: "des_2", text: "São adotadas medidas para impedir reenergização?", ref: "10.13.3" },
+                    { id: "des_3", text: "Existe bloqueio e identificação dos circuitos?", ref: "10.13" },
+                    { id: "des_4", text: "É mantido o estado de desenergização durante todo o serviço?", ref: "10.13.3" }
+                ]
+            },
+            {
+                title: "9. INSTALAÇÕES ENERGIZADAS E TRABALHO EM PROXIMIDADE",
+                items: [
+                    { id: "ene_1", text: "Os serviços são executados apenas por trabalhadores autorizados?", ref: "10.14.1" },
+                    { id: "ene_2", text: "Serviços em MT e AT são realizados por pelo menos duas pessoas?", ref: "10.14.2" },
+                    { id: "ene_3", text: "Os religamentos automáticos são bloqueados quando necessário?", ref: "10.14.3" },
+                    { id: "ene_4", text: "Há sinalização dos dispositivos bloqueados?", ref: "10.14.3.1" },
+                    { id: "ene_5", text: "Trabalhadores em proximidade receberam instrução formal?", ref: "10.14.1.2" }
+                ]
+            },
+            {
+                title: "10. ENSAIOS DIELÉTRICOS",
+                items: [
+                    { id: "ens_1", text: "Ferramentas isoladas possuem ensaios válidos?", ref: "10.14.4" },
+                    { id: "ens_2", text: "Luvas isolantes possuem ensaios válidos?", ref: "10.14.4" },
+                    { id: "ens_3", text: "EPCs isolantes possuem ensaios válidos?", ref: "10.14.4" },
+                    { id: "ens_4", text: "Existe controle da periodicidade dos ensaios?", ref: "10.14.4.1" }
+                ]
+            },
+            {
+                title: "11. DOCUMENTAÇÃO",
+                items: [
+                    { id: "doc_1", text: "A documentação está atualizada?", ref: "10.15.2" },
+                    { id: "doc_2", text: "A documentação está disponível aos trabalhadores?", ref: "10.15.2" },
+                    { id: "doc_3", text: "Os documentos estão em português?", ref: "10.15.1" },
+                    { id: "doc_4", text: "Os documentos digitais seguem os requisitos da NR-1?", ref: "10.15.1" },
+                    { id: "doc_5", text: "Existem procedimentos, AR e PT arquivados?", ref: "10.15.4(a)" },
+                    { id: "doc_6", text: "Existem registros de treinamentos e autorizações?", ref: "10.15.4(c)" },
+                    { id: "doc_7", text: "Existem relatórios de ensaios dielétricos?", ref: "10.15.4(d)" }
+                ]
+            },
+            {
+                title: "12. SITUAÇÕES DE GRAVE E IMINENTE RISCO (GIR)",
+                items: [
+                    { id: "gir_1", text: "A empresa avaliou as situações caracterizadas como GIR?", ref: "10.16" },
+                    { id: "gir_2", text: "Existem medidas para interrupção imediata das atividades em GIR?", ref: "10.16" },
+                    { id: "gir_3", text: "Os trabalhadores conhecem as condições impeditivas?", ref: "10.16 e 10.9" }
+                ]
+            }
+        ];
+
+        window.initNR10Checklist = function() {
+            const container = document.getElementById('nr10-checklist-root');
+            if (!container) return;
+
+            // prefill report fields
+            const companyInput = document.getElementById('nr10-report-company');
+            if (companyInput) companyInput.value = localStorage.getItem('nr10_report_company') || '';
+            
+            const auditorInput = document.getElementById('nr10-report-auditor');
+            if (auditorInput) auditorInput.value = localStorage.getItem('nr10_report_auditor') || '';
+            
+            const sectorInput = document.getElementById('nr10-report-sector');
+            if (sectorInput) sectorInput.value = localStorage.getItem('nr10_report_sector') || '';
+            
+            const dateInput = document.getElementById('nr10-report-date');
+            if (dateInput) {
+                const savedDate = localStorage.getItem('nr10_report_date');
+                if (savedDate) {
+                    dateInput.value = savedDate;
+                } else {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.value = today;
+                    localStorage.setItem('nr10_report_date', today);
+                }
+            }
+
+            let html = '';
+            CHECKLIST_SECTIONS.forEach((sec, sIdx) => {
+                html += `
+                    <div class="bg-white border border-gray-150 rounded-2xl p-5 shadow-sm space-y-4 text-left">
+                        <h3 class="font-extrabold text-[#111827] text-sm md:text-base border-b border-gray-100 pb-3 flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                                ${sec.title}
+                            </span>
+                        </h3>
+                        <div class="divide-y divide-gray-100">
+                `;
+
+                sec.items.forEach((item, iIdx) => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+
+                    // Active states for checkboxes
+                    const simActive = savedVal === 'sim';
+                    const parcialActive = savedVal === 'parcial';
+                    const naoActive = savedVal === 'nao';
+                    const naActive = savedVal === 'na';
+
+                    html += `
+                        <div class="py-4.5 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs md:text-sm">
+                            <div class="space-y-1 max-w-xl text-left">
+                                <p class="font-bold text-gray-800 leading-snug">${item.text}</p>
+                                <span class="inline-flex items-center gap-1 text-[10px] md:text-xs text-primary font-bold bg-primary/5 px-2 py-0.5 rounded-md font-mono">
+                                    Ref: NR-10 ${item.ref}
+                                </span>
+                            </div>
+                            <!-- Response Options Button row -->
+                            <div class="grid grid-cols-4 sm:flex items-center gap-1.5 md:gap-2">
+                                <button onclick="selectChecklistItem('${item.id}', 'sim')" id="btn-${item.id}-sim" class="px-2.5 py-1.5 rounded-xl border text-[11px] font-bold transition flex flex-col sm:flex-row items-center gap-1 justify-center whitespace-nowrap cursor-pointer ${
+                                    simActive 
+                                    ? 'bg-emerald-500 border-emerald-500 text-white shadow-sm' 
+                                    : 'bg-gray-50 hover:bg-emerald-50 text-gray-500 hover:text-emerald-700 border-gray-200'
+                                }">
+                                    <span class="w-1.5 h-1.5 rounded-full inline-block ${simActive ? 'bg-white' : 'bg-emerald-500'}"></span> Sim
+                                </button>
+                                <button onclick="selectChecklistItem('${item.id}', 'parcial')" id="btn-${item.id}-parcial" class="px-2.5 py-1.5 rounded-xl border text-[11px] font-bold transition flex flex-col sm:flex-row items-center gap-1 justify-center whitespace-nowrap cursor-pointer ${
+                                    parcialActive 
+                                    ? 'bg-amber-500 border-amber-500 text-white shadow-sm' 
+                                    : 'bg-gray-50 hover:bg-amber-50 text-gray-500 hover:text-amber-700 border-gray-200'
+                                }">
+                                    <span class="w-1.5 h-1.5 rounded-full inline-block ${parcialActive ? 'bg-white' : 'bg-amber-400'}"></span> Parc.
+                                </button>
+                                <button onclick="selectChecklistItem('${item.id}', 'nao')" id="btn-${item.id}-nao" class="px-2.5 py-1.5 rounded-xl border text-[11px] font-bold transition flex flex-col sm:flex-row items-center gap-1 justify-center whitespace-nowrap cursor-pointer ${
+                                    naoActive 
+                                    ? 'bg-rose-500 border-rose-500 text-white shadow-sm' 
+                                    : 'bg-gray-50 hover:bg-rose-50 text-gray-500 hover:text-rose-700 border-gray-200'
+                                }">
+                                    <span class="w-1.5 h-1.5 rounded-full inline-block ${naoActive ? 'bg-white' : 'bg-rose-500'}"></span> Não
+                                </button>
+                                <button onclick="selectChecklistItem('${item.id}', 'na')" id="btn-${item.id}-na" class="px-2.5 py-1.5 rounded-xl border text-[11px] font-bold transition flex flex-col sm:flex-row items-center gap-1 justify-center whitespace-nowrap cursor-pointer ${
+                                    naActive 
+                                    ? 'bg-slate-500 border-slate-500 text-white shadow-sm' 
+                                    : 'bg-gray-50 hover:bg-slate-200 text-gray-500 hover:text-slate-800 border-gray-200'
+                                }">
+                                    <span class="w-1.5 h-1.5 rounded-full inline-block ${naActive ? 'bg-white' : 'bg-slate-400'}"></span> N/A
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            updateNR10Score();
+
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        };
+
+        window.selectChecklistItem = function(id, val) {
+            localStorage.setItem('nr10_chk_' + id, val);
+
+            const options = ['sim', 'parcial', 'nao', 'na'];
+            options.forEach(opt => {
+                const btn = document.getElementById('btn-' + id + '-' + opt);
+                if (!btn) return;
+                
+                // Clear active classes
+                btn.className = btn.className
+                    .replace('bg-emerald-500 border-emerald-500 text-white shadow-sm', '')
+                    .replace('bg-amber-500 border-amber-500 text-white shadow-sm', '')
+                    .replace('bg-rose-500 border-rose-500 text-white shadow-sm', '')
+                    .replace('bg-slate-500 border-slate-500 text-white shadow-sm', '')
+                    .trim();
+
+                // Add original default class style definitions
+                if (!btn.className.includes('bg-gray-50')) {
+                    btn.className += ' bg-gray-50 hover:bg-emerald-50 text-gray-500 hover:text-emerald-700 border-gray-200';
+                }
+
+                // Adjust indicator dot as colored
+                const dot = btn.querySelector('.rounded-full');
+                if (dot) {
+                    dot.className = 'w-1.5 h-1.5 rounded-full inline-block';
+                    if (opt === 'sim') dot.className += ' bg-emerald-500';
+                    else if (opt === 'parcial') dot.className += ' bg-amber-500';
+                    else if (opt === 'nao') dot.className += ' bg-rose-500';
+                    else if (opt === 'na') dot.className += ' bg-slate-400';
+                }
+            });
+
+            // Set active class for selected option
+            const activeBtn = document.getElementById('btn-' + id + '-' + val);
+            if (activeBtn) {
+                activeBtn.className = activeBtn.className
+                    .replace('bg-gray-50 hover:bg-emerald-50 text-gray-500 hover:text-emerald-700 border-gray-200', '')
+                    .replace('bg-gray-50 hover:bg-amber-50 text-gray-500 hover:text-amber-700 border-gray-200', '')
+                    .replace('bg-gray-50 hover:bg-rose-50 text-gray-500 hover:text-rose-700 border-gray-200', '')
+                    .replace('bg-gray-50 hover:bg-slate-200 text-gray-500 hover:text-slate-800 border-gray-200', '')
+                    .replace('hover:bg-emerald-50', '')
+                    .replace('hover:bg-amber-50', '')
+                    .replace('hover:bg-rose-50', '')
+                    .replace('hover:bg-slate-200', '')
+                    .trim();
+
+                let activeColorClass = '';
+                if (val === 'sim') activeColorClass = 'bg-emerald-500 border-emerald-500 text-white shadow-sm';
+                else if (val === 'parcial') activeColorClass = 'bg-amber-500 border-amber-500 text-white shadow-sm';
+                else if (val === 'nao') activeColorClass = 'bg-rose-500 border-rose-500 text-white shadow-sm';
+                else if (val === 'na') activeColorClass = 'bg-slate-500 border-slate-500 text-white shadow-sm';
+
+                activeBtn.className += ' ' + activeColorClass;
+
+                const activeDot = activeBtn.querySelector('.rounded-full');
+                if (activeDot) {
+                    activeDot.className = 'w-1.5 h-1.5 rounded-full inline-block bg-white';
+                }
+            }
+
+            updateNR10Score();
+        };
+
+        window.updateNR10Score = function() {
+            let total = 0, sim = 0, parcial = 0, nao = 0, na = 0;
+            CHECKLIST_SECTIONS.forEach(sec => {
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+                    total++;
+                    if (savedVal === 'sim') sim++;
+                    else if (savedVal === 'parcial') parcial++;
+                    else if (savedVal === 'nao') nao++;
+                    else if (savedVal === 'na') na++;
+                });
+            });
+
+            const answered = sim + parcial + nao + na;
+            const applicable = total - na;
+            const conformityScore = applicable > 0 ? Math.round((sim / applicable) * 100) : 0;
+
+            // Update DOM Elements
+            const percentageEl = document.getElementById('checklist-percentage');
+            const progressEl = document.getElementById('checklist-progress-bar');
+            const statsEl = document.getElementById('checklist-stats-text');
+            const badgeEl = document.getElementById('checklist-status-badge');
+            const descEl = document.getElementById('checklist-status-desc');
+
+            const percentageBottomEl = document.getElementById('checklist-percentage-bottom');
+            const progressBottomEl = document.getElementById('checklist-progress-bar-bottom');
+            const statsBottomEl = document.getElementById('checklist-stats-text-bottom');
+            const badgeBottomEl = document.getElementById('checklist-status-badge-bottom');
+            const descBottomEl = document.getElementById('checklist-status-desc-bottom');
+
+            if (percentageEl) percentageEl.innerText = conformityScore;
+            if (progressEl) progressEl.style.width = conformityScore + '%';
+            if (statsEl) statsEl.innerText = `${answered} de ${total} itens respondidos`;
+
+            if (percentageBottomEl) percentageBottomEl.innerText = conformityScore;
+            if (progressBottomEl) progressBottomEl.style.width = conformityScore + '%';
+            if (statsBottomEl) statsBottomEl.innerText = `${answered} de ${total} itens respondidos`;
+
+            if (badgeEl && descEl) {
+                if (answered === 0) {
+                    badgeEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-slate-100 text-slate-700 font-semibold";
+                    badgeEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-slate-400 inline-block animate-pulse"></span> Não Iniciado`;
+                    descEl.innerText = "Responda aos itens de auditoria abaixo para visualizar as recomendações técnicas personalizadas.";
+                    if (progressEl) progressEl.className = "w-0 bg-slate-350 h-full rounded-full transition-all duration-355";
+                } else if (conformityScore < 50) {
+                    badgeEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-rose-50 text-rose-600 border border-rose-100 font-semibold";
+                    badgeEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-rose-500 inline-block"></span> Nível Crítico`;
+                    descEl.innerText = "Sua empresa apresenta graves conformidades pendentes com a Nova NR-10. Recomenda-se realizar uma auditoria técnica urgente de subestações industriais para mitigar riscos de multas severas e acidentes.";
+                    if (progressEl) progressEl.className = "bg-rose-500 h-full rounded-full transition-all duration-355";
+                } else if (conformityScore < 80) {
+                    badgeEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-amber-50 text-amber-650 border border-amber-100 font-semibold";
+                    badgeEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Atenção Necessária`;
+                    descEl.innerText = "Sua empresa preenche algumas defesas, mas restam lacunas administrativas ou de engenharia na Portaria MTE 737/2026. Recomendado elaborar um plano de ação para regularizar os laudos e exames ausentes.";
+                    if (progressEl) progressEl.className = "bg-amber-500 h-full rounded-full transition-all duration-355";
+                } else {
+                    badgeEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-emerald-50 text-emerald-700 border border-emerald-100 font-semibold";
+                    badgeEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> Nível Excelente`;
+                    descEl.innerText = "Parabéns! Suas instalações e rotinas de segurança demonstram robusto alinhamento preventivo com a Nova NR-10. Mantenha os exames periódicos e ensaios em dia para garantir auditoria contínua.";
+                    if (progressEl) progressEl.className = "bg-emerald-500 h-full rounded-full transition-all duration-355";
+                }
+            }
+
+            if (badgeBottomEl && descBottomEl) {
+                if (answered === 0) {
+                    badgeBottomEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-slate-100 text-slate-700 font-semibold";
+                    badgeBottomEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-slate-400 inline-block animate-pulse"></span> Não Iniciado`;
+                    descBottomEl.innerText = "Responda aos itens de auditoria abaixo para visualizar as recomendações técnicas personalizadas.";
+                    if (progressBottomEl) progressBottomEl.className = "w-0 bg-slate-350 h-full rounded-full transition-all duration-355";
+                } else if (conformityScore < 50) {
+                    badgeBottomEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-rose-50 text-rose-600 border border-rose-100 font-semibold";
+                    badgeBottomEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-rose-500 inline-block"></span> Nível Crítico`;
+                    descBottomEl.innerText = "Sua empresa apresenta graves conformidades pendentes com a Nova NR-10. Recomenda-se realizar uma auditoria técnica urgente de subestações industriais para mitigar riscos de multas severas e acidentes.";
+                    if (progressBottomEl) progressBottomEl.className = "bg-rose-500 h-full rounded-full transition-all duration-355";
+                } else if (conformityScore < 80) {
+                    badgeBottomEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-amber-50 text-amber-650 border border-amber-100 font-semibold";
+                    badgeBottomEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Atenção Necessária`;
+                    descBottomEl.innerText = "Sua empresa preenche algumas defesas, mas restam lacunas administrativas ou de engenharia na Portaria MTE 737/2026. Recomendado elaborar um plano de ação para regularizar os laudos e exames ausentes.";
+                    if (progressBottomEl) progressBottomEl.className = "bg-amber-500 h-full rounded-full transition-all duration-355";
+                } else {
+                    badgeBottomEl.className = "inline-flex items-center gap-2 px-3 py-2 rounded-xl font-bold text-xs w-fit bg-emerald-50 text-emerald-700 border border-emerald-100 font-semibold";
+                    badgeBottomEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> Nível Excelente`;
+                    descBottomEl.innerText = "Parabéns! Suas instalações e rotinas de segurança demonstram robusto alinhamento preventivo com a Nova NR-10. Mantenha os exames periódicos e ensaios em dia para garantir auditoria contínua.";
+                    if (progressBottomEl) progressBottomEl.className = "bg-emerald-500 h-full rounded-full transition-all duration-355";
+                }
+            }
+        };
+
+        window.scrollToChecklist = function() {
+            const el = document.getElementById('nr10-checklist-section');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+
+        window.simulateNR10Checklist = function(type) {
+            CHECKLIST_SECTIONS.forEach(sec => {
+                sec.items.forEach(item => {
+                    let val = 'sim';
+                    if (type === 'critico') {
+                        const rand = Math.random();
+                        if (rand < 0.15) val = 'sim';
+                        else if (rand < 0.4) val = 'parcial';
+                        else if (rand < 0.85) val = 'nao';
+                        else val = 'na';
+                    } else if (type === 'real') {
+                        const rand = Math.random();
+                        if (rand < 0.7) val = 'sim';
+                        else if (rand < 0.85) val = 'parcial';
+                        else if (rand < 0.95) val = 'nao';
+                        else val = 'na';
+                    } else {
+                        val = 'sim';
+                    }
+                    localStorage.setItem('nr10_chk_' + item.id, val);
+                });
+            });
+
+            initNR10Checklist();
+
+            if (typeof showToast === 'function') {
+                let msg = "Checklist preenchido automaticamente com 100% de conformidade técnica.";
+                if (type === 'critico') msg = "Checklist preenchido simulando um cenário de nível crítico.";
+                else if (type === 'real') msg = "Checklist preenchido simulando um cenário operacional realista.";
+                showToast(msg);
+            }
+        };
+
+        window.resetNR10Checklist = function() {
+            if (confirm("Deseja realmente resetar todas as respostas do checklist?")) {
+                // Clear all related items from localStorage safely
+                for (let i = localStorage.length - 1; i >= 0; i--) {
+                    const key = localStorage.key(i);
+                    if (key && (key.startsWith('nr10_chk_') || key.startsWith('nr10_report_'))) {
+                        localStorage.removeItem(key);
+                    }
+                }
+                
+                // Force clear DOM inputs so the visual state is instantly synchronized
+                const companyInput = document.getElementById('nr10-report-company');
+                if (companyInput) companyInput.value = '';
+                const auditorInput = document.getElementById('nr10-report-auditor');
+                if (auditorInput) auditorInput.value = '';
+                const sectorInput = document.getElementById('nr10-report-sector');
+                if (sectorInput) sectorInput.value = '';
+                
+                const dateInput = document.getElementById('nr10-report-date');
+                if (dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.value = today;
+                    localStorage.setItem('nr10_report_date', today);
+                }
+
+                // Re-initialize checklist renderer to redraw all button styles as non-selected
+                initNR10Checklist();
+
+                if (typeof showToast === 'function') {
+                    showToast("Formulário reiniciado com sucesso.");
+                }
+            }
+        };
+
+        window.downloadNR10Report = function() {
+            let total = 0, sim = 0, parcial = 0, nao = 0, na = 0;
+            CHECKLIST_SECTIONS.forEach(sec => {
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+                    total++;
+                    if (savedVal === 'sim') sim++;
+                    else if (savedVal === 'parcial') parcial++;
+                    else if (savedVal === 'nao') nao++;
+                    else if (savedVal === 'na') na++;
+                });
+            });
+
+            const answered = sim + parcial + nao + na;
+            const applicable = total - na;
+            const conformityScore = applicable > 0 ? Math.round((sim / applicable) * 100) : 0;
+
+            let statusStr = "NÃO INICIADO";
+            if (answered > 0) {
+                if (conformityScore < 50) statusStr = "CRÍTICO";
+                else if (conformityScore < 80) statusStr = "REGULARIZAÇÃO NECESSÁRIA";
+                else statusStr = "EXCELENTE";
+            }
+
+            let text = `================================================================================
+             SICUREZZA ENGENHARIA - RELATÓRIO DE CONFORMIDADE DA NOVA NR-10
+================================================================================
+Gerado em: ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}
+Artigo de Referência: Portaria MTE nº 737/2026
+
+--------------------------------------------------------------------------------
+SUMÁRIO GERAL DO PROCESSO:
+--------------------------------------------------------------------------------
+Score de Conformidade Técnica: ${conformityScore}%
+Status de Regularidade: ${statusStr}
+Itens Respondidos: ${answered} de ${total} (${Math.round(answered / total * 100)}%)
+Itens Aplicáveis: ${applicable}
+
+Respostas Detalhadas:
+- SIM: ${sim} itens
+- PARCIAL: ${parcial} itens
+- NÃO: ${nao} itens
+- N/A (Não Aplicável): ${na} itens
+
+--------------------------------------------------------------------------------
+DETALHAMENTO COMPLETO DA AUDITORIA:
+--------------------------------------------------------------------------------
+`;
+
+            CHECKLIST_SECTIONS.forEach(sec => {
+                text += `\n> ${sec.title}\n`;
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || 'Não Respondido';
+                    let selectStr = "---";
+                    if (savedVal === 'sim') selectStr = "[X] SIM";
+                    else if (savedVal === 'parcial') selectStr = "[X] PARCIAL";
+                    else if (savedVal === 'nao') selectStr = "[X] NÃO";
+                    else if (savedVal === 'na') selectStr = "[X] N/A";
+
+                    text += `${selectStr.padEnd(13)} - ${item.text} (Ref: ${item.ref})\n`;
+                });
+            });
+
+            text += `\n--------------------------------------------------------------------------------
+Sicurezza Engenharia - Especialistas em Inventário de Riscos, SPDA e Nova NR-10.
+Sede em Sumaré/SP. Saiba mais e fale com engº em sicurezza.com.br.
+================================================================================`;
+
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Relatorio_Auditoria_Nova_NR10_Sicurezza.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        };
+
+        window.shareNR10WhatsApp = function() {
+            let total = 0, sim = 0, parcial = 0, nao = 0, na = 0;
+            CHECKLIST_SECTIONS.forEach(sec => {
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+                    total++;
+                    if (savedVal === 'sim') sim++;
+                    else if (savedVal === 'parcial') parcial++;
+                    else if (savedVal === 'nao') nao++;
+                    else if (savedVal === 'na') na++;
+                });
+            });
+
+            const answered = sim + parcial + nao + na;
+            const applicable = total - na;
+            const conformityScore = applicable > 0 ? Math.round((sim / applicable) * 100) : 0;
+
+            let statusStr = "Não Iniciado";
+            if (answered > 0) {
+                if (conformityScore < 50) statusStr = "Crítico";
+                else if (conformityScore < 80) statusStr = "Atenção Necessária";
+                else statusStr = "Excelente";
+            }
+
+            const shareUrl = window.location.href.split('?')[0] + '?artigo=0';
+            const text = encodeURIComponent(`Fiz o Diagnóstico Técnico da Nova NR-10 (Portaria MTE 737/2026) no portal interativo da Sicurezza Engenharia!\n\n📊 *Resultado:* ${conformityScore}% de conformidade técnica\n⚠️ *Status:* ${statusStr}\n📝 *Itens auditados:* ${answered} de ${total}\n\nFaça o diagnóstico de sua planta gratuitamente aqui:\n${shareUrl}`);
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        };
+
+        window.printNR10Report = function() {
+            let total = 0, sim = 0, parcial = 0, nao = 0, na = 0;
+            CHECKLIST_SECTIONS.forEach(sec => {
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+                    total++;
+                    if (savedVal === 'sim') sim++;
+                    else if (savedVal === 'parcial') parcial++;
+                    else if (savedVal === 'nao') nao++;
+                    else if (savedVal === 'na') na++;
+                });
+            });
+
+            const answered = sim + parcial + nao + na;
+            const applicable = total - na;
+            const conformityScore = applicable > 0 ? Math.round((sim / applicable) * 100) : 0;
+
+            let statusStr = "NÃO INICIADO";
+            let statusColor = "#64748b";
+            if (answered > 0) {
+                if (conformityScore < 50) {
+                    statusStr = "CRÍTICO";
+                    statusColor = "#ef4444";
+                } else if (conformityScore < 80) {
+                    statusStr = "REGULARIZAÇÃO NECESSÁRIA";
+                    statusColor = "#f59e0b";
+                } else {
+                    statusStr = "EXCELENTE";
+                    statusColor = "#10b981";
+                }
+            }
+
+            const companyName = localStorage.getItem('nr10_report_company') || 'Auto-Diagnóstico de SST';
+            const auditorName = localStorage.getItem('nr10_report_auditor') || 'Leitor do Portal';
+            const sectorName = localStorage.getItem('nr10_report_sector') || 'Geral';
+            const rawDate = localStorage.getItem('nr10_report_date');
+            let formattedDate = '';
+            if (rawDate) {
+                const parts = rawDate.split('-');
+                if (parts.length === 3) {
+                    formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
+                } else {
+                    formattedDate = rawDate;
+                }
+            } else {
+                formattedDate = new Date().toLocaleDateString('pt-BR');
+            }
+
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                alert("Por favor, habilite popups para imprimir o relatório.");
+                return;
+            }
+
+            const RECOMMENDATIONS = {
+                gro_1: "Mapear e catalogar sistematicamente todas as fontes de energia elétrica e circuitos no Inventário de Riscos do PGR, em estrita observância aos itens 10.1.1 e 10.3 da Nova NR-10 (Portaria MTE nº 737/2026).",
+                gro_2: "Elaborar uma análise quantitativa e qualitativa detalhada de severidade e probabilidade de ocorrência de choque elétrico em todo o ciclo de vida das instalações elétricas, conforme os parâmetros previstos no item 10.3.",
+                gro_3: "Realizar o estudo de modelagem técnica e simulação de curto-circuito para cálculo de energia incidente (IE), definindo as categorias e limites de aproximação segura (Fronteira de Flash de Arco), em conformidade com os itens 10.2.3 e 10.3.",
+                gro_4: "Proceder à avaliação e registro do inventário de riscos específicos decorrentes de corrente contínua (CC) —, em especial para sistemas fotovoltaicos, retificadores e bancos de baterias —, conforme diretrizes normativas do subitem 10.2.1.",
+                gro_5: "Segmentar de forma individualizada as análises de risco do PGR nas faixas de Baixa Tensão (BT), Média Tensão (MT) e Alta Tensão (AT) atuantes na planta, identificando riscos secundários e específicos sob as normas do subitem 10.2.1.",
+                gro_6: "Instituir no Plano de Ação das Medidas de Controle do PGR objetivos cronologicamente mensuráveis, metas físicas claras e a designação formal de responsáveis técnicos para a mitigação de riscos associados à eletricidade (item 10.3).",
+                
+                proj_1: "Apresentar projeto elétrico 'as-built' integral e atualizado, elaborado por profissional habilitado, contemplando os requisitos e memória de cálculo de todos os circuitos de força, comando e controle (itens 10.4 e 10.15.3).",
+                proj_2: "Adequar o memorial descritivo dos sistemas de aterramento e dispositivos de proteção, garantindo estudo de coordenação e seletividade técnica atualizados para mitigação sistemática de choques e curtos, conforme item 10.4.",
+                proj_3: "Integrar formalmente ao projeto elétrico os cálculos normativos de dissipação e contenção de arco elétrico e a definição do correto dimensionamento físico de barreiras de proteção térmica coletivas (item 10.4).",
+                proj_4: "Apresentar laudos técnicos de inspeção periódica do Sistema de Proteção contra Descargas Atmosféricas (SPDA) e de continuidade dos condutores de proteção, devidamente instruídos com laudos de ensaio de resistência e ART (item 10.15.3).",
+                
+                adm_1: "Implementar rito administrativo compulsório de planejamento de tarefas elétricas por meio de Ordem de Serviço (OS) técnica especificando o escopo, cronograma, recursos e as delimitações físicas da área de trabalho, nos termos do item 10.7.",
+                adm_2: "Exigir o preenchimento diário, individual ou da equipe técnica executora, em campo, da Análise de Risco (AR) detalhada, devidamente assinada por todos os envolvidos antes de qualquer atividade nas instalações elétricas (item 10.7).",
+                adm_3: "Emitir obrigatoriamente a Permissão de Trabalho (PT) documental integrada para todas as atividades em alta ou média tensão, sistemas energizados ou trabalho em áreas classificadas e de proximidades específicas (itens 10.7 e 10.15.4(a)).",
+                adm_4: "Elaborar, homologar e disponibilizar aos trabalhadores Instruções de Trabalho (IT) formais de SSO e procedimentos operacionais seguros para rotinas de manobras de disjuntores, comissionamento e manutenção de cabines (itens 10.7 e 10.15.4(a)).",
+                
+                cap_1: "Exigir e registrar no Prontuário os diplomas e certificados acadêmicos emitidos por instituições credenciadas de ensino oficial (MEC) que comprovem a qualificação técnica em eletrotécnica ou áreas afins (subitem 10.8).",
+                cap_2: "Apresentar certidão de registro e regularidade cadastral profissional ativa do trabalhador habilitado perante o correspondente Conselho de Classe (CREA ou CFT), nos termos das atribuições normativas do subitem 10.8.",
+                cap_3: "Formalizar o Programa Prático de Treinamento Laboral e Plano de Aprendizado Prático individual para cada eletricista capacitado, sob instrução de profissional habilitado e supervisão de responsável técnico (subitem 10.8).",
+                cap_4: "Manter registro de prática profissional continuada devidamente documentado e assinado pelo supervisor imediato, comprovando as horas de supervisão direta necessárias antes do exercício de atividades autônomas (subitem 10.8).",
+                
+                tre_1: "Promover e comprovar a realização do treinamento inicial básico obrigatório de 40 horas sobre segurança do trabalho com eletricidade, seguindo rigorosamente a ementa formal estipulada no Anexo III da Nova NR-10.",
+                tre_2: "Comprovar a realização do curso de capacitação complementar de 40 horas voltado para Sistema Elétrico de Potência (SEP) e suas proximidades para todos os eletricistas que realizarem manobras técnicas na AT/MT (subitem 10.9 e Anexo III).",
+                tre_3: "Programar, registrar e aplicar o treinamento compulsório de reciclagem periódica bienal com carga horária mínima de 8 horas, para manter os trabalhadores instruídos quanto aos novos procedimentos e inovações (subitem 10.9).",
+                tre_4: "Centralizar no Prontuário da instalação as cópias físicas ou digitais das listas de frequência oficial assinadas, os editais de convocação e os certificados oficiais homologados dos adestramentos (item 10.15.4(c)).",
+                
+                aut_1: "Emitir ato formal individual e expresso de autorização de trabalho assinado pela direção ou engenheiro responsável da empresa para cada colaborador interveniente portador da Portaria 737 (subitem 10.10).",
+                aut_2: "Especificar individualmente nos documentos de autorização vigentes as exatas tarefas e limites para as quais o eletricista está habilitado, discriminando faixas de tensão regulamentadas (BT, MT ou SEP) e status operacional, sob o item 10.10.",
+                aut_3: "Estabelecer uma matriz de habilidade de autorização integrada e atualizada de fácil visualização técnica, demonstrando as aptidões individuais, validades de exames médicos (ASO) e reciclagens vigentes de SST (subitem 10.10).",
+                
+                epi_1: "Determinar especificações de catálogo para suprimentos exigindo calçados de segurança antiestáticos isolantes livres de pontas metálicas e o correto fornecimento de EPIs associados ao risco de choque e contatos acidentais (item 10.11).",
+                epi_2: "Fornecer vestimentas de proteção antichama integradas e completas (camisa e calça ou macacão) com nível ATPV mensurado e dimensionado em memorial técnico com base no potencial risco de arco elétrico sob os rigores do Anexo IV.",
+                epi_3: "Assegurar o registro unificado da entrega de equipamentos individuais contendo as assinaturas do recebedor e as indicações visíveis dos registros do Certificado de Aprovação (CA) válidos em atendimento à NR-6 e item 10.11.",
+                epi_4: "Proceder à validação periódica da vida útil e seletividade funcional dos EPIs (como luvas de extra-alta-tensão e óculos para detecção de flash de arco), avaliando se os mesmos atenuam o nível de risco real mapeado no PGR (item 10.11).",
+                
+                des_1: "Estabelecer procedimento padronizado escrito determinando as seis etapas sequenciais necessárias da desenergização segura: seccionamento físico, impedimento de religamento, constatação de tensão ausente, aterramento, proteção de adjacências e sinalização (item 10.13).",
+                des_2: "Adquirir travas mecânicas dielétricas, cadeados com hastes de plástico rígido e travas isolantes de disjuntor acopláveis universais para impedir o fechamento indesejado dos circuitos sob conserto, atendendo ao subitem 10.13.3.",
+                des_3: "Implementar a identificação individualizada dos pontos seccionados por meio de etiquetas plásticas de Lockout e Tagout (LOTO) indicando o nome do técnico atuante, ramal e descrição sumária da atividade em andamento no cubículo (item 10.13).",
+                des_4: "Assegurar que as estruturas metálicas de aterramento temporário equipotencial fiquem conectadas até a liberação final de segurança de toda a equipe mecânica de apoio e técnicos intervenientes autorizados (subitem 10.13.3).",
+                
+                ene_1: "Garantir isolação automatizada ou fechamentos normativos em subestações elétricas centrais, de modo que o ingresso nas salas de painéis seja restrito e de controle exclusivo por trabalhadores formais portadores de crachá de autorização (subitem 10.14.1).",
+                ene_2: "Determinar em ordem de serviço operacional que todas as intervenções de reparo e medição em locais energizados com tensão de Alta e Média Tensão (SEP/MT) sejam realizadas necessariamente em dupla técnica de trabalhadores autorizados (item 10.14.2).",
+                ene_3: "Implantar instrução operacional exigindo o prévio bloqueio obrigatório de comandos digitais de religamento automático de disjuntores da subestação durante a presença física de técnicos na zona de risco de aproximação das linhas (subitem 10.14.3).",
+                ene_4: "Fixar placas rígidas reflexivas de segurança (Ex: 'ATENÇÃO - TRABALHO EM ANDAMENTO - DISPOSITIVO BLOQUEADO') nas alavancas físicas de acoplamento de chaves e painéis de fusíveis em conformidade com o subitem 10.14.3.1.",
+                ene_5: "Realizar palestras formais ou integração documental de SST com registro formal para empreiteiros e trabalhadores civis que desenvolvam tarefas de apoio físico no perímetro interno de zona de vizinhança técnica aos condutores energizados (subitem 10.14.1.2).",
+                
+                ens_1: "Submeter ferramentas manuais isoladas e chaves de torque a ensaios preventivos de rigidez dielétrica em laboratórios qualificados e arquivar os relatórios de atendimento à tensão limite nominal aplicável (item 10.14.4).",
+                ens_2: "Monitorar o teste laboratorial de isolamento semestral contra envelhecimento e furos, além de realizar as vistorias visuais diárias por insuflador de ar das luvas dielétricas de proteção individual contra choques elétricos graves (item 10.14.4).",
+                ens_3: "Submeter tapetes elastoméricos de cabines primárias de força, bastões de operação telescópicos e mantas de borracha a análises dinâmicas de isolamento laboratorial, de acordo com as especificações exigidas de prevenção no item 10.14.4.",
+                ens_4: "Implementar controle visível por selo inviolável ou etiqueta termoplástica colada em cada equipamento de proteção atestando o cronograma de validade dielétrica e aprovação técnica de manutenção eletrostática (subitem 10.14.4.1).",
+                
+                doc_1: "Realizar auditoria técnica semestral para validação dos memoriais, laudos e prontuários que fundamentam o Prontuário de Instalações Elétricas (PIE), de forma a manter uma versão perfeitamente atualizada de acordo com as normas legislativas vigentes (subitem 10.15.2).",
+                doc_2: "Garantir acesso pleno e simplificado aos técnicos encarregados, organizando cópias completas do Prontuário de Instalações (PIE) e diagramas em computadores da oficina de elétrica ou impressos em pranchetas de cabines (item 10.15.2).",
+                doc_3: "Executar a devida e qualificada tradução técnica para o idioma nacional (Português) de todos os desenhos funcionais, catálogos técnicos de máquinas operatrizes e manuais operacionais importados presentes na planta fabril (subitem 10.15.1).",
+                doc_4: "Adotar meios eletrônicos com assinatura digital qualificada ICP-Brasil, garantindo autenticidade, impossibilidade de alteração retroativa e segurança cronológica das vistorias de SST exigidas normativamente pela NR-1 e subitem 10.15.1.",
+                doc_5: "Manter procedimento de arquivo sistemático e guarda pelo período legal mínimo de 5 (cinco) anos de todas as análises de risco de campo, PTs finalizadas e ordens de serviço de eletricistas terceirizados ou próprios (subitem 10.15.4(a)).",
+                doc_6: "Organizar prontuários individuais do pessoal de eletricidade contendo relatórios de exames complementares de medicina do trabalho (ASO), termos de atribuição individuais de autorização sob registro de RH corporativo (subitem 10.15.4(c)).",
+                doc_7: "Guardar e indexar no Prontuário da subestação todos os certificados laboratoriais e notas técnicas emitidas pelos laboratórios executores dos ensaios eletrostáticos periódicos de isolamento (item 10.15.4(d)).",
+                
+                gir_1: "Investigar de antemão e registrar e enquadrar no PGR/GRO as áreas, ambientes físicos (como valas de cabos ou tanques de geradores) e situações que possam constituir circunstância de Grave e Iminente Risco (GIR) à vida humana (subitem 10.16).",
+                gir_2: "Garantir a salvaguarda e instrução legal quanto à aplicação escrita do Direito de Recusa Técnica ao trabalhador que detectar vulnerabilidades de controle físico imediato nas fontes de energia energizadas (item 10.16).",
+                gir_3: "Fazer divulgação direta por meio de quadros de segurança de SST de todas as condições limitadores, desvios operacionais e situações impeditivas que vetem de forma imediata o trabalho de equipes eletrotécnicas (subitens 10.16 e 10.9)."
+            };
+
+
+            let html = `
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <title>Relatório de Conformidade Nova NR-10</title>
+                <style>
+                    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1f2937; margin: 0; padding: 40px; line-height: 1.5; }
+                    .header { border-bottom: 3px solid #047857; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+                    .header h1 { margin: 0; color: #111827; font-size: 22px; font-weight: 800; }
+                    .header p { margin: 5px 0 0 0; color: #4b5563; font-size: 13px; }
+                    .summary-box { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 30px; }
+                    .stat { font-size: 13px; color: #4b5563; margin-bottom: 5px; }
+                    .stat strong { color: #111827; }
+                    .score-bar { background-color: #e5e7eb; height: 10px; border-radius: 5px; overflow: hidden; margin-top: 8px; width: 100%; }
+                    .score-fill { height: 100%; background-color: #047857; }
+                    .badge { display: inline-block; padding: 6px 12px; border-radius: 8px; color: white; font-weight: bold; font-size: 13px; background-color: ${statusColor}; }
+                    .category-title { background-color: #f3f4f6; padding: 8px 12px; font-weight: bold; font-size: 14px; border-left: 4px solid #047857; margin-top: 25px; margin-bottom: 10px; border-radius: 0 6px 6px 0; page-break-after: avoid; }
+                    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
+                    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+                    th { font-weight: bold; background-color: #f9fafb; color: #374151; }
+                    .selected-val { font-weight: bold; padding: 2px 6px; border-radius: 4px; display: inline-block; font-size: 10px; text-transform: uppercase; }
+                    .val-sim { background-color: #d1fae5; color: #065f46; }
+                    .val-parcial { background-color: #fef3c7; color: #92400e; }
+                    .val-nao { background-color: #fee2e2; color: #991b1b; }
+                    .val-na { background-color: #f3f4f6; color: #374151; }
+                    .val-empty { color: #9ca3af; font-style: italic; }
+                    .footer { text-align: center; margin-top: 40px; font-size: 10px; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 15px; }
+                    
+                    /* Recommendations Styling Inside PDF */
+                    .rec-row-style {
+                        background-color: #fcfdfe;
+                    }
+                    .rec-inner-box {
+                        padding: 8px 14px;
+                        border-radius: 6px;
+                        font-family: inherit;
+                        font-size: 11px;
+                        line-height: 1.45;
+                        color: #1f2937;
+                        border-left: 3.5px solid #d1d5db;
+                        margin: 2px 0 6px 0;
+                    }
+                    .rec-inner-box.rec-nao {
+                        background-color: #fef2f2;
+                        border-color: #f87171;
+                        color: #7f1d1d;
+                    }
+                    .rec-inner-box.rec-parcial {
+                        background-color: #fffbeb;
+                        border-color: #fbbf24;
+                        color: #78350f;
+                    }
+                    
+                    /* Estilo da Marca d'água */
+                    .watermark {
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        width: 75%;
+                        max-width: 600px;
+                        transform: translate(-50%, -50%) rotate(-30deg);
+                        opacity: 0.05;
+                        z-index: -1000;
+                        pointer-events: none;
+                    }
+                    
+                    @media print {
+                        body { padding: 0; }
+                        .no-print { display: none; }
+                        .category-block { page-break-inside: avoid; }
+                        /* Garantir opacidade bem suave e visível na impressão física/PDF */
+                        .watermark {
+                            position: fixed;
+                            top: 55%;
+                            left: 50%;
+                            transform: translate(-50%, -50%) rotate(-30deg);
+                            opacity: 0.04;
+                            display: block !important;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <!-- Marca d'água grande e bem apagada da Sicurezza -->
+                <div class="watermark">
+                    <img src="https://drive.google.com/thumbnail?id=1P3J2JMdqu-GEF_XvH1JE7kxcSY2q6n6W&sz=w1000" style="width: 100%; height: auto;" alt="Sicurezza Logo Watermark">
+                </div>
+
+                <div class="header">
+                    <div>
+                        <h1>DIAGNÓSTICO DE CONFORMIDADE DA NOVA NR-10</h1>
+                        <p>Plano de Auditoria Baseado na Portaria MTE nº 737/2026</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="badge" style="background-color: ${statusColor}">${statusStr}</span>
+                        <p style="margin: 5px 0 0 0; font-size: 10px; color: #9ca3af;">Gerado em ${formattedDate}</p>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <div>
+                        <div class="stat">Empresa / Unidade: <strong style="color: #111827;">${companyName}</strong></div>
+                        <div class="stat">Auditor / Responsável: <strong style="color: #111827;">${auditorName}</strong></div>
+                        <div class="stat">Setor / Área Analisada: <strong style="color: #111827;">${sectorName}</strong></div>
+                        <div class="stat">Data do Diagnóstico: <strong style="color: #111827;">${formattedDate}</strong></div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; justify-content: center;">
+                        <div style="font-size: 11px; color: #4b5563; font-weight: bold; margin-bottom: 3px;">PERCENTUAL DE CONFORMIDADE</div>
+                        <div style="font-size: 36px; font-weight: 900; color: #047857; line-height: 1;">${conformityScore}%</div>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${conformityScore}%"></div>
+                        </div>
+                        <div style="font-size: 9px; color: #64748b; margin-top: 5px; text-align: right;">
+                            ${applicable} de ${total} aplicáveis (${Math.round(answered / total * 100)}% preenchido)
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            CHECKLIST_SECTIONS.forEach(sec => {
+                html += `
+                    <div class="category-block">
+                        <div class="category-title">${sec.title}</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 65%">Item de Verificação</th>
+                                    <th style="width: 15%">Referência</th>
+                                    <th style="width: 20%;">Resposta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                sec.items.forEach(item => {
+                    const savedVal = localStorage.getItem('nr10_chk_' + item.id) || '';
+                    let valCell = '<span class="selected-val val-empty">Não Respondido</span>';
+                    if (savedVal === 'sim') valCell = '<span class="selected-val val-sim">Sim</span>';
+                    else if (savedVal === 'parcial') valCell = '<span class="selected-val val-parcial">Parcial</span>';
+                    else if (savedVal === 'nao') valCell = '<span class="selected-val val-nao">Não</span>';
+                    else if (savedVal === 'na') valCell = '<span class="selected-val val-na">N/A</span>';
+
+                    html += `
+                        <tr style="${(savedVal === 'nao' || savedVal === 'parcial') ? 'border-bottom: none;' : ''}">
+                            <td style="font-weight: 600; color: #111827;">${item.text}</td>
+                            <td style="font-family: monospace; font-size: 11px; color: #4b5563;">NR-10 ${item.ref}</td>
+                            <td>${valCell}</td>
+                        </tr>
+                    `;
+
+                    // If answer is "Não" or "Parcial (Parc.)", generate the customized expert compliance recommendation
+                    if (savedVal === 'nao' || savedVal === 'parcial') {
+                        const recText = RECOMMENDATIONS[item.id] || "Realizar verificação de engenharia e adequar procedimentos técnicos de segurança.";
+                        const isNao = savedVal === 'nao';
+                        const cl = isNao ? 'rec-nao' : 'rec-parcial';
+                        const prefix = isNao ? 'Recomendação de Adequação Crítica (100%):' : 'Recomendação de Adequação Técnica (100%):';
+                        
+                        html += `
+                            <tr class="rec-row-style">
+                                <td colspan="3" style="padding-top: 0; padding-bottom: 8px;">
+                                    <div class="rec-inner-box ${cl}">
+                                        <strong>${prefix}</strong> ${recText}
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                });
+
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="footer" style="margin-top: 50px; border-top: 1px solid #d1d5db; padding-top: 25px; font-size: 11px; color: #4b5563; text-align: left; page-break-inside: avoid;">
+                    <div style="margin-bottom: 20px; padding: 15px; background-color: #f9fafb; border-left: 4px solid #f59e0b; border-radius: 6px; box-shadow: inset 0 0 2px rgba(0,0,0,0.02); line-height: 1.5;">
+                        <strong style="color: #111827; text-transform: uppercase; font-size: 10px; display: block; margin-bottom: 5px;">Termo de Isenção de Responsabilidade Técnica (Sicurezza Engenharia)</strong>
+                        Este auto-diagnóstico técnico interativo é uma ferramenta de caráter estritamente pedagógico e orientativo, fundamentada nas respostas cadastradas exclusiva e autonomamente sob inteira vontade e preenchimento direto do usuário. A <strong>Sicurezza Engenharia</strong> exime-se formalmente de qualquer responsabilidade técnica, civil ou criminal pela veracidade, fidedignidade ou integralidade física das respostas declaradas, tampouco pela execução prática ou omissão de controles elétricos e administrativos em campo. Cada indivíduo ou organização que preencher este formulário detém exclusiva e integral responsabilidade técnica e jurídica pelas respostas indicadas e pela garantia real de conformidade das suas respectivas instalações e equipes.
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 10px; color: #9ca3af; margin-top: 10px; gap: 15px;">
+                        <div>
+                            Portaria MTE nº 737/2026 • <strong>Sicurezza Engenharia</strong> • <a href="https://sicurezza.com.br" target="_blank" style="color: #047857; text-decoration: none; font-weight: bold;">sicurezza.com.br</a>
+                        </div>
+                        <div style="text-align: right; color: #374151;">
+                            Desenvolvido por: <strong>Eng. Paulo Steluti</strong><br>
+                            Contato Comercial (WhatsApp): <strong style="color: #047857;">(19) 99401-7886</strong>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    window.onload = function() {
+                        setTimeout(function() {
+                            window.print();
+                        }, 500);
+                    };
+                <\/script>
+            </body>
+            </html>
+            `;
+
+            printWindow.document.write(html);
+            printWindow.document.close();
+        };
 
         // ==================== HOMEPAGE ARTICLES CAROUSEL ====================
         function renderHomepageCarousel() {
